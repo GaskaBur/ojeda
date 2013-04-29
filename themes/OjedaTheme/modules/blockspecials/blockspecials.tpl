@@ -27,7 +27,7 @@
 <h4>Promociones del mes</h4>
 
 <ul>
-	{if $products|count > 0}
+	{if $products|count > 0 }
 		{foreach from=$products item=product name=myLoop}
 			<li>{$smarty.foreach.myLoop.iteration}. <a href="{$product.link}" title="{$product.legend|escape:'htmlall':'UTF-8'}"><span>{$product.name|strip_tags:'UTF-8'|escape:'htmlall':'UTF-8'}</span></a><span>{$product.price} €</span></li>
 		{/foreach}

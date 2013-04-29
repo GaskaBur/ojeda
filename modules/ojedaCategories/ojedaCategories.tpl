@@ -2,8 +2,8 @@
 {if isset($OjedaCategory)}
 <div class="row oj-menu large-12 columns">
     <div class="oj-cat large-4 columns panel callout oj-vinoteca">
-    	<img src="{$img_cat_dir}{$OjedaCategory}.jpg" alt="">
-        <h3>{$OjedaCategoryName}</h3>
+    	<img src="{$img_cat_dir}{$OjedaCategory}.jpg" alt="" id="ojeda_categoria_img">
+        <h3 id="ojeda_categoria_name">{$OjedaCategoryName}</h3>
     </div>
     <nav class="oj-main-nav large-8 columns ">
        <ul class="nav-bar">
@@ -14,8 +14,10 @@
 							<ul class="oj-main-nav2 active" {if $cat['cat']['id_category'] == $OjedaCategory}style="display:block;"{/if}>
 							{foreach from=$cat['cat']['subCat'] item=subcat}
 								{if $subcat['id_category'] == $OjedaCategory}
-									 <script>
+									<script>
 										document.getElementById("ojedaCat_{$cat['cat']['id_category']}").setAttribute('class','active');
+										document.getElementById("ojeda_categoria_img").setAttribute("src","{$img_cat_dir}{$cat['cat']['id_category']}.jpg");										
+										document.getElementById("ojeda_categoria_name").innerHTML = "{$cat['cat']['name']}";
 									</script>
 								{/if}
 
