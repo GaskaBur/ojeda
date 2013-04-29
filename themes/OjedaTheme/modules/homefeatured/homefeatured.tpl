@@ -39,7 +39,7 @@
 				{math equation="(total%perLine)" total=$smarty.foreach.homeFeaturedProducts.total perLine=$nbItemsPerLine assign=totModulo}
 				{if $totModulo == 0}{assign var='totModulo' value=$nbItemsPerLine}{/if}
 				<li class="large-3 columns panel">
-					<a href="{$product.link}" ><img src="{$link->getImageLink($product.link_rewrite, $product.id_image, 'large_default')}" /></a>
+					<a class="oj-prodpic" href="{$product.link}" ><img src="{$link->getImageLink($product.link_rewrite, $product.id_image, 'large_default')}" /></a>
 					<div class="precio">
 		            	<span>
 		            		{if !$priceDisplay}
@@ -49,7 +49,7 @@
             				{/if}
 		            	</span>
 		            </div>
-		            <a href="{$product.link}" title=""><span>{$product.name|truncate:35:'...'|escape:'htmlall':'UTF-8'}</span></a>
+		            <a class="oj-prodtitle" href="{$product.link}" title=""	><span>{$product.name|truncate:35:'...'|escape:'htmlall':'UTF-8'}</span></a>
 		            <a class="button compra" href="{$link->getPageLink('cart')}?qty=1&amp;id_product={$product.id_product}&amp;token={$static_token}&amp;add" title="a la cesta">Añadir a la cesta</a>
 		        </li>
 				

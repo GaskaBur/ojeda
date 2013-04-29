@@ -2,14 +2,14 @@
 		</div>
 		<footer class="oj-footer1 row">
 	    	<div class="large-12 column">
-	        	<div class="large-4 column panel oj-fav">
+	        	<div class="large-4 column panel oj-fav"><span class="ribete"></span>
 	        		{$HOOK_OJEDA_BESTSELLERS}	            	
 	        	</div>
 	        	
-	        	<div class="large-4 column panel oj-prom">
+	        	<div class="large-4 column panel oj-prom"><span class="ribete"></span>
 		            {$HOOK_OJEDA_PROMOTIONS}
 	        	</div>
-		        <div class="large-4 column panel oj-bur">
+		        <div class="large-4 column panel oj-bur"><span class="ribete"></span>
 		            <h4>Productos típicos de Burgos</h4>
 		            <ul>
 		                <li><a href="#" title=""><span>Morcilla de Burgos</span></a> <span>17,50 €</span></li>
@@ -34,8 +34,8 @@
 		    <br />
 		    
 		</footer>
-		{$HOOK_FOOTER}
-	</div>
+<!--		$HOOK_FOOTER}
+-->	</div>
 	<div class="oj-pie large-12 columns">
     	<p>Copyright 2013 · Delicatessen Ojeda S.A. · C/ Vitoria 5 - 09004 Burgos · Telf.: +34 947 20 48 32</p>
 	</div>

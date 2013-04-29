@@ -29,8 +29,7 @@
 {if isset($category)}
 	{$HOOK_MENU_OJEDA_CATEGORIES}
 	{if $category->id AND $category->active}
-		{*
-		<h1>
+<!--		<h1>
 			{strip}
 				{$category->name|escape:'htmlall':'UTF-8'}
 				{if isset($categoryNameComplement)}
@@ -39,7 +38,6 @@
 			{/strip}
 		</h1>
 		
-		
 		<div class="resumecat category-product-count">
 			{include file="$tpl_dir./category-count.tpl"}
 		</div>
@@ -47,10 +45,10 @@
 		{if $scenes || $category->description || $category->id_image}
 		<div class="content_scene_cat">
 			{if $scenes}
-				<!-- Scenes -->
+				<!-- Scenes --
 				{include file="$tpl_dir./scenes.tpl" scenes=$scenes}
 			{else}
-				<!-- Category image -->
+				<!-- Category image --
 				{if $category->id_image}
 				<div class="align_center">
 					<img src="{$link->getCatImageLink($category->link_rewrite, $category->id_image, 'category_default')}" alt="{$category->name|escape:'htmlall':'UTF-8'}" title="{$category->name|escape:'htmlall':'UTF-8'}" id="categoryImage" width="{$categorySize.width}" height="{$categorySize.height}" />
@@ -69,7 +67,8 @@
 				{/if}
 				</div>
 			{/if}
-		</div>
+		</div>-->
+        <span>Morralla en comentarios</span>
 		{/if}
 		{if isset($subcategories)}
 		<!-- Subcategories -->
@@ -95,7 +94,7 @@
 			<br class="clear"/>
 		</div>
 		{/if}
-		*}
+
 		{if $products}
 			<div class="content_sortPagiBar">
 				{include file="$tpl_dir./pagination.tpl"}
@@ -105,9 +104,9 @@
 					{include file="./nbr-product-page.tpl"}
 				</div>
 			</div>
-			
+			<div class="clear"></div>
 			{include file="./product-list.tpl" products=$products}
-			
+			<div class="clear"></div>
 			<div class="content_sortPagiBar">
 				<div class="sortPagiBar clearfix">
 					{include file="./product-sort.tpl"}

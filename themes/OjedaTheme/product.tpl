@@ -149,6 +149,7 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
 </script>
 
 {include file="$tpl_dir./breadcrumb.tpl"}
+{$HOOK_MENU_OJEDA_CATEGORIES}
 <div id="primary_block" class="clearfix">
 
 	{if isset($adminActionDisplay) && $adminActionDisplay}
