@@ -37,5 +37,11 @@ class Pack extends PackCore
 				$array_result[] = Product::getProductProperties($id_lang, $row);
 		return $array_result;
 	}
+
+	public static function isInStock($id_product)
+	{
+		return true;
+	}
+
 }
 
