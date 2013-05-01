@@ -27,9 +27,8 @@
 {include file="$tpl_dir./errors.tpl"}
 
 {if isset($category)}
-	{$HOOK_MENU_OJEDA_CATEGORIES}
 	{if $category->id AND $category->active}
-<!--		<h1>
+<!--	<h1>
 			{strip}
 				{$category->name|escape:'htmlall':'UTF-8'}
 				{if isset($categoryNameComplement)}
@@ -45,16 +44,16 @@
 		{if $scenes || $category->description || $category->id_image}
 		<div class="content_scene_cat">
 			{if $scenes}
-				<!-- Scenes --
+				<!-- Scenes 
 				{include file="$tpl_dir./scenes.tpl" scenes=$scenes}
 			{else}
-				<!-- Category image --
+				<!-- Category image 
 				{if $category->id_image}
 				<div class="align_center">
 					<img src="{$link->getCatImageLink($category->link_rewrite, $category->id_image, 'category_default')}" alt="{$category->name|escape:'htmlall':'UTF-8'}" title="{$category->name|escape:'htmlall':'UTF-8'}" id="categoryImage" width="{$categorySize.width}" height="{$categorySize.height}" />
 				</div>
 				{/if}
-			{/if}
+			{/if}-->
 
 			{if $category->description}
 				<div class="cat_desc">
@@ -67,11 +66,10 @@
 				{/if}
 				</div>
 			{/if}
-		</div>-->
-        <span>Morralla en comentarios</span>
+		<!--</div>
 		{/if}
 		{if isset($subcategories)}
-		<!-- Subcategories -->
+		<!-- Subcategories --
 		<div id="subcategories">
 			<h3>{l s='Subcategories'}</h3>
 			<ul class="inline_list">
@@ -93,7 +91,7 @@
 			</ul>
 			<br class="clear"/>
 		</div>
-		{/if}
+		{/if}-->
 
 		{if $products}
 			<div class="content_sortPagiBar">
@@ -115,7 +113,9 @@
 				</div>
 				{include file="./pagination.tpl"}
 			</div>
-		{/if}
+		{else}
+        	<div class="noprod">No hay productos en estos momentos.</div>
+        {/if}
 	{elseif $category->id}
 		<p class="warning">{l s='This category is currently unavailable.'}</p>
 	{/if}

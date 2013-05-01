@@ -3850,6 +3850,10 @@ header.oj-main-header {
 	background-position:bottom left;
 }
 
+#header {
+	
+}
+
 .oj-nproducts {
 	display:block;
 	margin:8px auto !important;	
@@ -3940,7 +3944,9 @@ nav ul.top-bar {
 	margin-top:10px;
 	margin-bottom:10px;	
 }
-
+.oj-branding {
+	position:relative;
+}
 .oj-branding .oj-logo h1 a{
 	background: url(../img/logo.png) no-repeat;
 	text-indent:-9999px;	
@@ -3948,6 +3954,18 @@ nav ul.top-bar {
 	height:115px;
 	margin-top:-15px;
 	margin-left:55px;
+}
+.oj-branding .oj-grupo a {
+	display:block;
+	width:100px;
+	height:120px;
+	position:absolute;
+	top:2px;
+	right:-20px;
+	background-image: url(../img/casaojeda.jpg);
+	background-repeat:no-repeat;
+	background-position:bottom left;
+	border-right:1px #c3b968 solid;
 }
 
 .oj-branding h2 {
@@ -4067,7 +4085,6 @@ nav.oj-main-nav2 ul.nav-bar {
 
 .oj-prod {
 	padding-bottom:5px !important;
-	background:	url(../img/punticos_line.jpg) repeat-x bottom !important;
 }
 .oj-prod h3 {
 	margin:15px 0px;
@@ -4089,6 +4106,7 @@ nav.oj-main-nav2 ul.nav-bar {
 .oj-prod ul {
 	list-style:none;
 	margin-left:-10px !important;
+	width:100% !important;
 }
 
 .oj-prod ul li {
@@ -4145,7 +4163,12 @@ nav.oj-main-nav2 ul.nav-bar {
 	margin-top:-20px !important;
 	margin-bottom:10px;
 	line-height:1.2em !important;
+	text-transform:lowercase !important;
 }
+.oj-prod ul li a.oj-prodtitle span {
+	text-transform:capitalize !important;
+}
+
 .oj-prod ul li a.oj-prodtitle:hover {
 	background-color:#82736b !important;
 	color:#fff;
@@ -4214,7 +4237,8 @@ nav.oj-main-nav2 ul.nav-bar {
 .oj-footer1 {
 	background: #fff;
 	border-top:1px #c3b968 solid !important;
-	padding-top:20px;
+	padding-top:20px !important;
+	background:	url(../img/punticos_line.jpg) repeat-x top !important;
 }
 
 .oj-footer1 .large-4 {
@@ -4278,7 +4302,7 @@ nav.oj-main-nav2 ul.nav-bar {
 	text-align:left !important;
 }
 
-body div.oj-main-container footer.oj-footer2.row {
+body div.oj-main-container footer.oj-footer2 {
 	background: #fff !important;
 	display:block;
 	height:50px;
@@ -4286,6 +4310,7 @@ body div.oj-main-container footer.oj-footer2.row {
 footer.oj-footer2 .large-8 {
 	margin-top:10px;
 	display:block;
+	padding-left:0px;
 }
 footer.oj-footer2 .large-8 a{
 	background: #fff !important;
@@ -4361,6 +4386,106 @@ footer.oj-footer2 {
 	display:block;
 	margin-top:20px;
 	margin-bottom:20px !important;	
+}
+
+.oj-main-content #center_column .oj-prod.large-12.columns {
+	margin-left:-30px !important;
+	padding:0px !important;
+}
+#center_column {
+	width:100% !important;	
+}
+#center_column > h1{
+	font-family: 'Princess Sofia', cursive !important;
+}
+body#product #center_column h1{
+	font-family: 'Abel', sans-serif !important;
+	font-size:22px !important;
+}
+
+.large-12.columns {
+	margin-left:-10px !important;
+}
+
+.rte {
+	padding:20px !important;
+	font-size:16px !important;	
+}
+.rte h2 {
+	font-family: 'Princess Sofia', cursive;	
+}
+
+.oj-footer2 .confianza {
+	display:block;
+	float:left;
+}
+.oj-footer2 span {
+	display:block;
+	float:right;
+	padding-right:30px;
+}
+
+
+ul#header_nav li#shopping_cart a{
+	background:	url(../img/cesta.png) no-repeat !important;
+	display:block;
+	height:40px !important;
+	width:100% !important;
+	border:1px #8a746a solid !important;
+	background-color:#eeead1 !important;
+	padding-top:0px !important;
+}
+ul#header_nav li#shopping_cart a span{
+	margin-top:0px !important;
+	line-height: 16px !important;
+}
+
+#header_user p#header_user_info {
+	font-size:16px !important;
+}
+
+#header_user p#header_user_info a.button{
+	padding:8px !important;
+	text-align:center !important;
+	color:#fff;
+}
+
+#header_user p#header_user_info a.account{
+	padding:8px !important;
+	text-align:center !important;
+	color:#c3b968;
+	display:block;
+	float:left !important;
+	background:#fff;
+	font-weight:bold !important;
+	text-transform:uppercase !important;
+}
+#header_user p#header_user_info span.acceder{
+	line-height:12px !important;
+	display:block;
+	float:left;
+}
+.noprod {
+	display:block;
+	margin:50px auto;	
+}
+
+#order_step {
+	clear:both !important;	
+}
+
+#order_step li {
+	display:block;
+	float:left;
+	width:15%;
+	padding:5px;
+	background:#E3E3E3;	
+}
+#order_step li.step_current {
+	background:#868686;	
+}
+#order_step li#step_end {
+	border-right:1px #4A4A4A solid;
 }
 
 

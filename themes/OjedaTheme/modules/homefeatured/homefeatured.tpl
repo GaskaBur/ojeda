@@ -24,7 +24,7 @@
 *}
 
 <!-- MODULE Home Featured Products -->
-<div class="oj-prod row">
+<div class="oj-prod large-12 columns">
 	<h3 class="large-12 columns"><span> Productos recomendados </span></h3>
 	{if isset($products) AND $products}
 		
@@ -33,7 +33,7 @@
 			{assign var='nbLi' value=$products|@count}
 			{math equation="nbLi/nbItemsPerLine" nbLi=$nbLi nbItemsPerLine=$nbItemsPerLine assign=nbLines}
 			{math equation="nbLines*liHeight" nbLines=$nbLines|ceil liHeight=$liHeight assign=ulHeight}
-			<ul class="oj-productos row collapse large-12 columns">
+			<ul class="oj-productos ">
 			
 			{foreach from=$products item=product name=homeFeaturedProducts}
 				{math equation="(total%perLine)" total=$smarty.foreach.homeFeaturedProducts.total perLine=$nbItemsPerLine assign=totModulo}

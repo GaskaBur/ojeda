@@ -28,7 +28,7 @@
     <div class="oj-prod row">
 	<ul class="oj-productos row collapse large-12 columns"><!-- id="product_list" -->
 	{foreach from=$products item=product name=products}
-		<li class="large-3 columns panel  {if $smarty.foreach.products.first}first_item{elseif $smarty.foreach.products.last}last_item{/if} {if $smarty.foreach.products.index % 2}alternate_item{else}item{/if} "> <!-- ajax_block_product clearfix -->
+		<li class="large-3 columns panel">  <!-- {if $smarty.foreach.products.first}first_item{elseif $smarty.foreach.products.last}last_item{/if} {if $smarty.foreach.products.index % 2}alternate_item{else}item{/if} ">  ajax_block_product clearfix -->
 			<!--<div class="left_block">
 				{if isset($comparator_max_item) && $comparator_max_item}
 					<p class="compare">
@@ -40,13 +40,13 @@
 			<div class="center_block">-->
 				<a href="{$product.link|escape:'htmlall':'UTF-8'}" class="oj-prodpic product_img_link" title="{$product.name|escape:'htmlall':'UTF-8'}">
 					<img src="{$link->getImageLink($product.link_rewrite, $product.id_image, 'home_default')}" alt="{$product.legend|escape:'htmlall':'UTF-8'}" {if isset($homeSize)} width="{$homeSize.width}" height="{$homeSize.height}"{/if} />
-					{if isset($product.new) && $product.new == 1}<span class="new">{l s='New'}</span>{/if}
+					<!--{if isset($product.new) && $product.new == 1}<span class="new">{l s='New'}</span>{/if}-->
 				</a>
                 <div class="precio content_price"><!--class="price" style="display: inline;"-->
 					{if isset($product.show_price) && $product.show_price && !isset($restricted_country_mode)}<span >{if !$priceDisplay}{convertPrice price=$product.price}{else}{convertPrice price=$product.price_tax_exc}{/if}</span><br />{/if}
 					<!--{if isset($product.available_for_order) && $product.available_for_order && !isset($restricted_country_mode)}<span class="availability">{if ($product.allow_oosp || $product.quantity > 0)}{l s='Available'}{elseif (isset($product.quantity_all_versions) && $product.quantity_all_versions > 0)}{l s='Product available with different options'}{else}{l s='Out of stock'}{/if}</span>{/if}-->
 				</div>
-				<a href="{$product.link|escape:'htmlall':'UTF-8'}" title="{$product.name|escape:'htmlall':'UTF-8'}"><span>{$product.name|escape:'htmlall':'UTF-8'|truncate:35:'...'}</span></a>
+				<a class="oj-prodtitle" href="{$product.link|escape:'htmlall':'UTF-8'}" title="{$product.name|escape:'htmlall':'UTF-8'}"><span>{$product.name|escape:'htmlall':'UTF-8'|truncate:35:'...'}</span></a>
 				<!--<p class="product_desc"><a href="{$product.link|escape:'htmlall':'UTF-8'}" title="{$product.description_short|strip_tags:'UTF-8'|truncate:360:'...'}" >{$product.description_short|strip_tags:'UTF-8'|truncate:360:'...'}</a></p>
 			</div>
 			<div class="right_block">-->
