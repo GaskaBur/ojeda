@@ -8,10 +8,10 @@
                     </div>
                     
                     <div class="large-4 column panel oj-prom"><span class="ribete"></span>
-                        {$HOOK_OJEDA_PROMOTIONS}
+                        {$HOOK_OJEDA_CUSTOM_LIST}
                     </div>
                     <div class="large-4 column panel oj-bur"><span class="ribete"></span>
-                        {$HOOK_OJEDA_CUSTOM_LIST}                        
+                        {$HOOK_OJEDA_CUSTOM_TAB_LIST}                       
                     </div>
 <!--                </div>	    
 -->            </footer>
