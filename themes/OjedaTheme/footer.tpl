@@ -11,14 +11,7 @@
                         {$HOOK_OJEDA_PROMOTIONS}
                     </div>
                     <div class="large-4 column panel oj-bur"><span class="ribete"></span>
-                        <h4>Productos típicos de Burgos</h4>
-                        <ul>
-                            <li><a href="#" title=""><span>Morcilla de Burgos</span></a> <span>17,50 €</span></li>
-                            <li><a href="#" title=""><span>Queso de Burgos</span></a> <span>17,50 €</span></li>
-                            <li><a href="#" title=""><span>Lechuga de Medina</span></a> <span>17,50 €</span></li>
-                            <li><a href="#" title=""><span>Lechazo de Aranda</span></a> <span>17,50 €</span></li>
-                            <li><a href="#" title=""><span>Vino D.O. Ribera</span></a> <span>17,50 €</span></li>
-                       </ul>
+                        {$HOOK_OJEDA_CUSTOM_LIST}                        
                     </div>
 <!--                </div>	    
 -->            </footer>

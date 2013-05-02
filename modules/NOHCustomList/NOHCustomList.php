@@ -25,6 +25,7 @@ class NOHCustomList extends Module
 	public function install()
 	{	 	
         Configuration::updateValue('NOHCL_titulo', '');
+        Configuration::updateValue('NOHCL_productos', '');
         return (parent::install() AND $this->registerHook('displayHeader') 
 		 		&& $this->registerHook('NOHCustomList')
 		 	);
@@ -34,41 +35,87 @@ class NOHCustomList extends Module
 
 	public function hookNOHCustomList()
 	{				
-		/*
-		$categories = array();
-		foreach (Category::getHomeCategories(Context::getContext()->language->id) as $key ) {
-			$c = array();
-			$c['cat'] = $key;
-			$c['cat']['subCat'] = Category::getChildren($key['id_category'],Context::getContext()->language->id);
-			$categories[]= $c;
-		};
+		$lista = array();
+		if (Configuration::get('NOHCL_productos') != "")
+			$lista = explode("|", Configuration::get('NOHCL_productos'));
+		
+		if (count($lista > 0))
+		{
+			global $smarty;
+			$pr = array();
+			foreach ($lista as $p ) {
+				$pr[] = new Product($p);
+			}
+			$this->context->smarty->assign(array("pr" => $pr));
+			return $this->display(__FILE__, 'NOHCustomList.tpl');
 
-		//var_dump($categories);
-		//print_r($categories);
-		global $smarty;
-		$this->context->smarty->assign(array("categories" => $categories));
-		return $this->display(__FILE__, 'ojedaCategories.tpl');
-		*/
+		}
+		else
+		{
+			return 'no hay productos';
+		}
 	}
 	
 	public function uninstall()
 	{
 		Configuration::deleteByName('NOHCL_titulo');
+		Configuration::deleteByName('NOHCL_productos');
 		return (parent::uninstall());
 	}  
 
 	public function getContent()
 	{
 		$output = null;
+		$lista = array();
+		$lista = explode("|", Configuration::get('NOHCL_productos'));
+
  
-		if (Tools::isSubmit('submit'.$this->name))
+		if (Tools::isSubmit('titulo'))
 		{
-			
-				Configuration::updateValue('NOHCL_titulo', Tools::getValue('titulo'));
-				$output .= $this->displayConfirmation($this->l('Settings updated'));
-			
+			if (isset($_POST['NOCL_productsList']))
+				$lista = $_POST['NOCL_productsList'];
+			else
+				$lista = array();
+			Configuration::updateValue('NOHCL_titulo', Tools::getValue('titulo'));
+			Configuration::updateValue('NOHCL_productos', implode("|", $lista));
+			$output .= $this->displayConfirmation($this->l('Settings updated'));			
 		}
-		return $output.$this->displayForm();
+		
+		$products = Product::getProducts(4, 0, 0, 'name', 'ASC');
+		$output.= '<form method="post" action="'.$_SERVER['REQUEST_URI'].'" enctype="multipart/form-data">
+			<fieldset style="width: 800px;">
+    				<div id="items">';					
+		
+			$output .= '<label>Título de la lista de productos</label>';
+			$output .= '<div class="margin-form" style="padding-left:0">';
+			$output .= '<input type="text" name="titulo" style="width:500px;" id="titulo" size="12" maxlength="400" value="'.Configuration::get('NOHCL_titulo').'" />';
+			$output .= '</div>';
+
+			$output .= '<select name="NOCL_productsList[]" multiple size=20>';
+			foreach ($products as $p) {
+				$output .= '<option VALUE="'.$p['id_product'].'" ';
+				if (array_search($p['id_product'], $lista) > -1)
+					$output .= 'selected="selected"';
+				$output .= '>'.$p['id_product'].' - '.$p['name'].'</option>';
+			}
+			$output .= '</select>';
+			 	 	
+ 	 		$output .= '
+ 	 				<br>
+					<p>Mantén pulsado <strong>CTRL</strong> para seleccionar varios productos </p>
+
+					<div class="margin-form">
+
+					 <input type="submit" name="FSPAsubmitUpdate" id="FSPAsubmitUpdate" value="'.$this->l('Guardar').'" class="button" />
+				</div>
+				</div>
+				</fieldset>
+			</form>';
+ 	 	
+ 	 	
+ 	 	
+		
+ 		return $output;
 
 	}
 	

@@ -33,6 +33,14 @@ class FrontController extends FrontControllerCore
 	    $this->context->smarty->assign(array(
 			 "HOOK_OJEDA_PROMOTIONS" => Hook::exec('productPromotions'),
 		 ));
+
+	     $this->context->smarty->assign(array(
+			 "HOOK_OJEDA_CUSTOM_LIST" => Hook::exec('NOHCustomList'),
+		 ));
+
+		 $this->context->smarty->assign(array(
+			 "HOOK_OJEDA_CUSTOM_LIST_PROMOTIONS" => Hook::exec('NOHCustomList2'),
+		 ));
 	}
 }
 
