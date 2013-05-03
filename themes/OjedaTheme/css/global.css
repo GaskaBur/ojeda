@@ -71,8 +71,8 @@ p em {font-style:italic}
 }
 .required {color:#990000}
 
-/* link **************************************************************************************** */
-a, a:active, a:visited {
+/* link ****************************************************************************************  a:visited */
+a, a:active {
 	color:#333;
 	text-decoration:none;
 	outline: medium none

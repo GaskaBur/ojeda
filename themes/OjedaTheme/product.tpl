@@ -170,8 +170,8 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
 	</p>
 	{/if}
 
-	<!-- right infos id="pb-right-column"-->
-	<div   class="large-6 columns">
+	<!-- right infos -->
+	<div class="oj-prodright large-6 columns" id="pb-right-column">
 		<!-- product img-->
 		<div id="image-block">
 		{if $have_image}
@@ -217,8 +217,8 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
 		</ul>
 	</div>
 
-	<!-- left infos id="pb-left-column"-->
-	<div  class="large-6 columns">
+	<!-- left infos -->
+	<div  class="oj-prodleft large-6 columns" id="pb-left-column">
 		<h1>{$product->name|escape:'htmlall':'UTF-8'}</h1>
 		 
 		{if $product->description_short OR $packItems|@count > 0}
@@ -355,20 +355,20 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
 
 			<!-- Out of stock hook 
 			<p id="oosHook"{if $product->quantity > 0} style="display: none;"{/if}>
-				{$HOOK_PRODUCT_OOS}
-			</p>
+				{$HOOK_PRODUCT_OOS} 
+			<!-- </p> -->
 
-			<p class="warning_inline" id="last_quantities"{if ($product->quantity > $last_qties OR $product->quantity <= 0) OR $allow_oosp OR !$product->available_for_order OR $PS_CATALOG_MODE} style="display: none"{/if} >{l s='Warning: Last items in stock!'}</p>-->
+			<!-- <p class="warning_inline" id="last_quantities"{if ($product->quantity > $last_qties OR $product->quantity <= 0) OR $allow_oosp OR !$product->available_for_order OR $PS_CATALOG_MODE} style="display: none"{/if} >{l s='Warning: Last items in stock!'}</p> 
 		</div>
 
-		<div class="content_prices clearfix">
+		<div class="content_prices clearfix"> -->
 			<!-- prices -->
 			{if $product->show_price AND !isset($restricted_country_mode) AND !$PS_CATALOG_MODE}
 
 			{if $product->online_only}
 			<p class="online_only">{l s='Online only'}</p>
 			{/if}
-
+	
 			<div class="price">
 				{if !$priceDisplay || $priceDisplay == 2}
 					{assign var='productPrice' value=$product->getPrice(true, $smarty.const.NULL, $priceDisplayPrecision)}
@@ -531,23 +531,26 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
 		<!--<ul id="idTab4" class="bullet">
 			<div class="block products_block accessories_block clearfix">-->
             <div class="oj-prod row">
-			<ul class="oj-productos row collapse large-12 columns">
+				<ul class="oj-productos row collapse large-12 columns">
 			<!--	<div class="large-3 columns panel block_content">
 					<ul>-->
 					{foreach from=$accessories item=accessory name=accessories_list}
 						{if ($accessory.allow_oosp || $accessory.quantity > 0) AND $accessory.available_for_order AND !isset($restricted_country_mode)}
 							{assign var='accessoryLink' value=$link->getProductLink($accessory.id_product, $accessory.link_rewrite, $accessory.category)}
-							<li class="ajax_block_product {if $smarty.foreach.accessories_list.first}first_item{elseif $smarty.foreach.accessories_list.last}last_item{else}item{/if} product_accessories_description">
+							<li class="large-3 columns panel"> <!-- {if $smarty.foreach.accessories_list.first}first_item{elseif $smarty.foreach.accessories_list.last}last_item{else}item{/if} ">  ajax_block_product product_accessories_description -->
 								
-								<!--<div class="product_desc">-->
-									<a href="{$accessoryLink|escape:'htmlall':'UTF-8'}" title="{$accessory.legend|escape:'htmlall':'UTF-8'}"  class="oj-prodpic product product_image"><img src="{$link->getImageLink($accessory.link_rewrite, $accessory.id_image, 'medium_default')}" alt="{$accessory.legend|escape:'htmlall':'UTF-8'}" width="{$mediumSize.width}" height="{$mediumSize.height}" /></a>
+								<!-- <div class="product_desc">
+									<a href="{$accessoryLink|escape:'htmlall':'UTF-8'}" title="{$accessory.legend|escape:'htmlall':'UTF-8'}"  class="oj-prodpic product_img_link"><img src="{$link->getImageLink($accessory.link_rewrite, $accessory.id_image, 'medium_default')}" alt="{$accessory.legend|escape:'htmlall':'UTF-8'}" width="{$mediumSize.width}" height="{$mediumSize.height}" /></a> -->
+                                    <a href="{$accessoryLink|escape:'htmlall':'UTF-8'}" title="{$accessory.legend|escape:'htmlall':'UTF-8'}"  class="oj-prodpic product_img_link"><img src="{$link->getImageLink($accessory.link_rewrite, $accessory.id_image, 'medium_default')}" alt="{$accessory.legend|escape:'htmlall':'UTF-8'}" width="{$homeSize.width}" height="{$homeSize.height}" /></a>
+                                    
+                                 
 									<!--<div class="block_description">
 										<a href="{$accessoryLink|escape:'htmlall':'UTF-8'}" title="{l s='More'}" class="product_description">{$accessory.description_short|strip_tags|truncate:400:'...'}</a>
 									</div>
 									<div class="clear_product_desc">&nbsp;</div>
 								</div>-->
                                 <div class="precio content_price">
-                                	 {if $priceDisplay != 1}{displayWtPrice p=$accessory.price}{else}{displayWtPrice p=$accessory.price_tax_exc}{/if}
+                                	 <span>{if $priceDisplay != 1}{displayWtPrice p=$accessory.price}{else}{displayWtPrice p=$accessory.price_tax_exc}{/if}</span>
                                 </div>
                                 
 								<a class="oj-prodtitle" href="{$accessoryLink|escape:'htmlall':'UTF-8'}">{$accessory.name|escape:'htmlall':'UTF-8'}</a>
@@ -562,8 +565,8 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
 							</li>
 						{/if}
 					{/foreach}
-			
-		</ul></div>
+			</ul>
+        </div>
 	{/if}
 
 	<!-- Customizable products -->

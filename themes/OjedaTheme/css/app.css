@@ -3851,7 +3851,7 @@ header.oj-main-header {
 }
 
 #header {
-	
+	height:134px !important;
 }
 
 .oj-nproducts {
@@ -3970,9 +3970,10 @@ nav ul.top-bar {
 
 .oj-branding h2 {
 	font-size:1.1em;
-	display:block;
-	margin-top:-31px;
-	margin-bottom:20px;
+	display:block !important;
+	margin-top:-45px !important;
+	margin-bottom:20px !important;
+	float:left !important;
 	margin-left:160px;
 	font-family: 'Abel', sans-serif !important;
 	border-top:1px solid #82736b;
@@ -3989,7 +3990,9 @@ nav ul.top-bar {
 }
 
 .oj-menu {
-	margin-bottom:30px !important;
+	clear:both !important;
+	margin-top:5px !important;
+	margin-bottom:10px !important;
 }
 
 nav.oj-main-nav {
@@ -4382,9 +4385,7 @@ footer.oj-footer2 {
 	background-repeat: no-repeat;
 }
 
-.button.compra.big {
-	width:200px;
-}
+
 .oj-item {
 	display:block;
 	margin-top:20px;
@@ -4494,6 +4495,139 @@ ul#header_nav li#shopping_cart a span{
 .clear {
 	clear:both !important;	
 }
+/* cartblock */
+#cart_block {
+	position:absolute !important;
+	z-index:1000 !important;
+}
+
+#cart_block .block_content{
+    background:#c3b968;
+	border: 1px #A6A6A6 solid;
+	position:absolute;
+	top:40px !important;
+	right:0px !important;
+	width:350px;
+}
+
+#cart_block_list {
+	background:#f8f7df;
+	padding:5px;
+}
+
+#cart_block_list #cart-buttons a#button_order_cart {
+	background:#A0A0A0;
+	border: 1px #000 solid;
+}
+#cart_block_list #cart-buttons a#button_order_cart span{
+	display:none !important;
+}
+
+form#buy_block #quantity_wanted_p {
+	display:block;
+	float:left;
+	width:100px;
+	padding-top:0px;	
+}
+#quantity_wanted_p label{
+	text-align:left !important;
+	font-size:13px !important;
+}
+#quantity_wanted_p input#quantity_wanted {
+	font-size:15px !important;
+}
+
+#short_description_content {
+	padding-bottom:0px !important;
+	margin-bottom:10px !important;	
+}
+
+.product_attributes {
+	padding-top:0px !important;
+}
+
+#attributes fieldset {
+	margin:0px !important;
+	border-left:none !important;
+	border-right:none !important;
+	border-top:none !important;
+}
+
+.product_attributes .price {
+	display:block;
+	float:left;
+	width:120px;
+	height:50px;
+	padding-top:30px;
+}
+.button.compra.big {
+	width:200px;
+	float:right;
+	margin-top:20px;
+}
+
+#center_column .breadcrumb {
+	font-size:15px;
+	border-bottom: 1px #c4ba63 solid;
+	padding-bottom:5px;
+}
+#center_column .breadcrumb a{
+	padding-bottom:5px;
+	font-weight:bold;
+	color:#837167;
+}
+
+.oj-prodleft, .oj-prodright {
+	width:48% !important;
+	margin-bottom:-20px !important;
+}
+
+#primary_block #pb-left-column.oj-prodleft h1 {
+	color: #000;
+	font-size:2em !important;
+	line-height:1em !important;	
+}
+
+#more_info_sheets {
+	padding-top:0px !important;	
+}
+
+#more_info_sheets h3 {
+	background:	url(../img/punticos_line.jpg) repeat-x bottom !important;
+	font-family: 'Abel', sans-serif !important;
+	font-size:20px !important;
+	padding-bottom:10px !important;
+}
+
+.content_sortPagiBar {
+	background:#FFF;
+	border-bottom:1px #D5D5D5 solid;
+	border-top:none !important;
+	padding:10px !important;
+	display:block;
+	float:left !important;
+	width:100%;
+	margin-bottom:10px !important;
+}
+#productsSortForm p,  #pagination.pagination {
+	margin-top:-10px !important;
+	float:left !important;
+	display:block !important;
+}
+form.nbrItemPage.pagination p {
+	margin-top:-15px !important;
+	float:right !important;
+	display:block !important;
+}
+
+/*
+#productsSortForm p label {
+	display:inline-block;	
+}
+#productsSortForm p #selectPrductSort{
+	display:inline-block;
+	width:190px;
+}*/
 
 
 /*********************************/
