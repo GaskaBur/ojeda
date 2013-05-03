@@ -1,4 +1,5 @@
 
+{$OjedaCategory}
 {if isset($OjedaCategory)}
 <div class="row oj-menu large-12 columns">
     <div class="oj-cat large-4 columns panel callout oj-vinoteca">
@@ -15,6 +16,7 @@
 							{foreach from=$cat['cat']['subCat'] item=subcat}
 								{if $subcat['id_category'] == $OjedaCategory}
 									<script>
+										alert ('car');
 										document.getElementById("ojedaCat_{$cat['cat']['id_category']}").setAttribute('class','active');
 										document.getElementById("ojeda_categoria_img").setAttribute("src","{$img_cat_dir}{$cat['cat']['id_category']}.jpg");										
 										document.getElementById("ojeda_categoria_name").innerHTML = "{$cat['cat']['name']}";

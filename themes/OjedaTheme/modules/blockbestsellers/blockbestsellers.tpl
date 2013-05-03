@@ -28,7 +28,7 @@
 <h4>Los preferidos de nuestros clientes</h4>
 <ul>
 	{foreach from=$best_sellers item=product name=myLoop}
-		<li>{$smarty.foreach.myLoop.iteration}. <a href="{$product.link}" title="{$product.legend|escape:'htmlall':'UTF-8'}"><span>{$product.name|strip_tags:'UTF-8'|escape:'htmlall':'UTF-8'}</span></a><span>{$product.price}</span></li>
+		<li>{$smarty.foreach.myLoop.iteration}. <a href="{$product.link}" title="{$product.legend|escape:'htmlall':'UTF-8'}"><span>{$product.name|strip_tags:'UTF-8'|escape:'htmlall':'UTF-8'|truncate:25:"..":true}</span></a><span>{$product.price}</span></li>
 	{/foreach}
 </ul>
 <!-- /MODULE Block best sellers -->

@@ -170,8 +170,8 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
 	</p>
 	{/if}
 
-	<!-- right infos-->
-	<div id="pb-right-column">
+	<!-- right infos id="pb-right-column"-->
+	<div   class="large-6 columns">
 		<!-- product img-->
 		<div id="image-block">
 		{if $have_image}
@@ -217,17 +217,18 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
 		</ul>
 	</div>
 
-	<!-- left infos-->
-	<div id="pb-left-column">
+	<!-- left infos id="pb-left-column"-->
+	<div  class="large-6 columns">
 		<h1>{$product->name|escape:'htmlall':'UTF-8'}</h1>
-
+		 
 		{if $product->description_short OR $packItems|@count > 0}
 		<div id="short_description_block">
 			{if $product->description_short}
 				<div id="short_description_content" class="rte align_justify">{$product->description_short}</div>
 			{/if}
 			{if $product->description}
-			<p class="buttons_bottom_block"><a href="javascript:{ldelim}{rdelim}" class="button">{l s='More details'}</a></p>
+				<p class="buttons_bottom_block"><a href="javascript:{ldelim}{rdelim}" class="button">{l s='More details'}</a></p>
+           
 			{/if}
 			{if $packItems|@count > 0}
 			<div class="short_description_pack">
@@ -242,7 +243,7 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
 			{/if}
 		</div>
 		{/if}
-
+		 <p>{$product->description}</p>
 		{*{if isset($colors) && $colors}
 		<!-- colors -->
 		<div id="color_picker">
@@ -352,12 +353,12 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
 			</p>
 			{/if}
 
-			<!-- Out of stock hook -->
+			<!-- Out of stock hook 
 			<p id="oosHook"{if $product->quantity > 0} style="display: none;"{/if}>
 				{$HOOK_PRODUCT_OOS}
 			</p>
 
-			<p class="warning_inline" id="last_quantities"{if ($product->quantity > $last_qties OR $product->quantity <= 0) OR $allow_oosp OR !$product->available_for_order OR $PS_CATALOG_MODE} style="display: none"{/if} >{l s='Warning: Last items in stock!'}</p>
+			<p class="warning_inline" id="last_quantities"{if ($product->quantity > $last_qties OR $product->quantity <= 0) OR $allow_oosp OR !$product->available_for_order OR $PS_CATALOG_MODE} style="display: none"{/if} >{l s='Warning: Last items in stock!'}</p>-->
 		</div>
 
 		<div class="content_prices clearfix">
@@ -435,10 +436,10 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
 					{l s='Add to cart'}
 				</span>
 			{else}
-				<p id="add_to_cart" class="buttons_bottom_block">
+				<!--<p id="add_to_cart" class="buttons_bottom_block">-->
 					<span></span>
-					<input type="submit" name="Submit" value="{l s='Add to cart'}" class="exclusive" />
-				</p>
+					<input type="submit" name="Submit" value="{l s='Add to cart'}" class="button compra big" />
+				<!--</p>-->
 			{/if}
 			{if isset($HOOK_PRODUCT_ACTIONS) && $HOOK_PRODUCT_ACTIONS}{$HOOK_PRODUCT_ACTIONS}{/if}
 
@@ -493,21 +494,21 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
 <!-- description and features -->
 {if (isset($product) && $product->description) || (isset($features) && $features) || (isset($accessories) && $accessories) || (isset($HOOK_PRODUCT_TAB) && $HOOK_PRODUCT_TAB) || (isset($attachments) && $attachments) || isset($product) && $product->customizable}
 <div id="more_info_block" class="clear">
-	<ul id="more_info_tabs" class="idTabs idTabsShort clearfix">
+	<!--<ul id="more_info_tabs" class="idTabs idTabsShort clearfix">
 		{if $product->description}<li><a id="more_info_tab_more_info" href="#idTab1">{l s='More info'}</a></li>{/if}
 		{if $features}<li><a id="more_info_tab_data_sheet" href="#idTab2">{l s='Data sheet'}</a></li>{/if}
 		{if $attachments}<li><a id="more_info_tab_attachments" href="#idTab9">{l s='Download'}</a></li>{/if}
 		{if isset($accessories) AND $accessories}<li><a href="#idTab4">{l s='Accessories'}</a></li>{/if}
 		{if isset($product) && $product->customizable}<li><a href="#idTab10">{l s='Product customization'}</a></li>{/if}
 		{$HOOK_PRODUCT_TAB}
-	</ul>
+	</ul>-->
 	<div id="more_info_sheets" class="sheets align_justify">
-	{if isset($product) && $product->description}
-		<!-- full description -->
+<!--	{if isset($product) && $product->description}
+		<!-- full description --
 		<div id="idTab1" class="rte">{$product->description}</div>
 	{/if}
 	{if isset($features) && $features}
-		<!-- product's features -->
+		<!-- product's features --
 		<ul id="idTab2" class="bullet">
 		{foreach from=$features item=feature}
             {if isset($feature.value)}
@@ -522,43 +523,47 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
 			<li><a href="{$link->getPageLink('attachment', true, NULL, "id_attachment={$attachment.id_attachment}")}">{$attachment.name|escape:'htmlall':'UTF-8'}</a><br />{$attachment.description|escape:'htmlall':'UTF-8'}</li>
 		{/foreach}
 		</ul>
-	{/if}
+	{/if}-->
+   
 	{if isset($accessories) AND $accessories}
 		<!-- accessories -->
-		<ul id="idTab4" class="bullet">
-			<div class="block products_block accessories_block clearfix">
-				<div class="block_content">
-					<ul>
+        <hr /><h3>Productos relacionados</h3>
+		<!--<ul id="idTab4" class="bullet">
+			<div class="block products_block accessories_block clearfix">-->
+            <div class="oj-prod row">
+			<ul class="oj-productos row collapse large-12 columns">
+			<!--	<div class="large-3 columns panel block_content">
+					<ul>-->
 					{foreach from=$accessories item=accessory name=accessories_list}
 						{if ($accessory.allow_oosp || $accessory.quantity > 0) AND $accessory.available_for_order AND !isset($restricted_country_mode)}
 							{assign var='accessoryLink' value=$link->getProductLink($accessory.id_product, $accessory.link_rewrite, $accessory.category)}
 							<li class="ajax_block_product {if $smarty.foreach.accessories_list.first}first_item{elseif $smarty.foreach.accessories_list.last}last_item{else}item{/if} product_accessories_description">
-								<p class="s_title_block">
-									<a href="{$accessoryLink|escape:'htmlall':'UTF-8'}">{$accessory.name|escape:'htmlall':'UTF-8'}</a>
-									{if $accessory.show_price AND !isset($restricted_country_mode) AND !$PS_CATALOG_MODE} - <span class="price">{if $priceDisplay != 1}{displayWtPrice p=$accessory.price}{else}{displayWtPrice p=$accessory.price_tax_exc}{/if}</span>{/if}
-								</p>
-								<div class="product_desc">
-									<a href="{$accessoryLink|escape:'htmlall':'UTF-8'}" title="{$accessory.legend|escape:'htmlall':'UTF-8'}" class="product_image"><img src="{$link->getImageLink($accessory.link_rewrite, $accessory.id_image, 'medium_default')}" alt="{$accessory.legend|escape:'htmlall':'UTF-8'}" width="{$mediumSize.width}" height="{$mediumSize.height}" /></a>
-									<div class="block_description">
+								
+								<!--<div class="product_desc">-->
+									<a href="{$accessoryLink|escape:'htmlall':'UTF-8'}" title="{$accessory.legend|escape:'htmlall':'UTF-8'}"  class="oj-prodpic product product_image"><img src="{$link->getImageLink($accessory.link_rewrite, $accessory.id_image, 'medium_default')}" alt="{$accessory.legend|escape:'htmlall':'UTF-8'}" width="{$mediumSize.width}" height="{$mediumSize.height}" /></a>
+									<!--<div class="block_description">
 										<a href="{$accessoryLink|escape:'htmlall':'UTF-8'}" title="{l s='More'}" class="product_description">{$accessory.description_short|strip_tags|truncate:400:'...'}</a>
 									</div>
 									<div class="clear_product_desc">&nbsp;</div>
-								</div>
+								</div>-->
+                                <div class="precio content_price">
+                                	 {if $priceDisplay != 1}{displayWtPrice p=$accessory.price}{else}{displayWtPrice p=$accessory.price_tax_exc}{/if}
+                                </div>
+                                
+								<a class="oj-prodtitle" href="{$accessoryLink|escape:'htmlall':'UTF-8'}">{$accessory.name|escape:'htmlall':'UTF-8'}</a>
 								
-								<p class="clearfix" style="margin-top:5px">
+								<!--<p class="clearfix" style="margin-top:5px">
 									<a class="button" href="{$accessoryLink|escape:'htmlall':'UTF-8'}" title="{l s='View'}">{l s='View'}</a>
-									{if !$PS_CATALOG_MODE}
-									<a class="exclusive button ajax_add_to_cart_button" href="{$link->getPageLink('cart', true, NULL, "qty=1&amp;id_product={$accessory.id_product|intval}&amp;token={$static_token}&amp;add")}" rel="ajax_id_product_{$accessory.id_product|intval}" title="{l s='Add to cart'}">{l s='Add to cart'}</a>
-									{/if}
-								</p>
+									{if !$PS_CATALOG_MODE}-->
+									<a class="exclusive button compra ajax_add_to_cart_button" href="{$link->getPageLink('cart', true, NULL, "qty=1&amp;id_product={$accessory.id_product|intval}&amp;token={$static_token}&amp;add")}" rel="ajax_id_product_{$accessory.id_product|intval}" title="{l s='Add to cart'}">{l s='Add to cart'}</a>
+									<!--{/if}
+								</p>-->
 								
 							</li>
 						{/if}
 					{/foreach}
-					</ul>
-				</div>
-			</div>
-		</ul>
+			
+		</ul></div>
 	{/if}
 
 	<!-- Customizable products -->

@@ -4382,6 +4382,9 @@ footer.oj-footer2 {
 	background-repeat: no-repeat;
 }
 
+.button.compra.big {
+	width:200px;
+}
 .oj-item {
 	display:block;
 	margin-top:20px;
@@ -4486,6 +4489,10 @@ ul#header_nav li#shopping_cart a span{
 }
 #order_step li#step_end {
 	border-right:1px #4A4A4A solid;
+}
+
+.clear {
+	clear:both !important;	
 }
 
 
