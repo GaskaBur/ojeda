@@ -414,7 +414,7 @@
 		</p>
 		<p class="submit">
 			<input type="hidden" name="id_order" value="{$order->id|intval}" />
-			<input type="submit" class="button" name="submitMessage" value="{l s='Send'}"/>
+			<input type="submit" class="button medium" name="submitMessage" value="{l s='Send'}"/>
 		</p>
 	</form>
 {else}

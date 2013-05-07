@@ -162,7 +162,7 @@
 {include file="$tpl_dir./breadcrumb.tpl"}
 {/if}
 
-{if !$opc}<h1>{l s='Addresses'}</h1>{else}<h2><span>1</span> {l s='Addresses'}</h2>{/if}
+{if !$opc}<h3>{l s='Addresses'}</h3>{else}<h3><span>1</span> {l s='Addresses'}</h3>{/if}
 
 {if !$opc}
 	{assign var='current_step' value='address'}
@@ -233,7 +233,7 @@
 			{/section}
 			</select>
 			{else}
-				<a style="margin-left: 221px;" href="{$link->getPageLink('address', true, NULL, "back={$back_order_page}?step=1&select_address=1{if $back}&mod={$back}{/if}")}" title="{l s='Add'}" class="button_large">{l s='Add a new address'}</a>
+				<a style="margin-left: 221px;" href="{$link->getPageLink('address', true, NULL, "back={$back_order_page}?step=1&select_address=1{if $back}&mod={$back}{/if}")}" title="{l s='Add'}" class="button right">{l s='Add a new address'}</a>
 			{/if}
 		</p>
 		<div class="clearfix">
@@ -242,10 +242,12 @@
 			<ul class="address alternate_item {if $cart->isVirtualCart()}full_width{/if}" id="address_invoice">
 			</ul>
 		</div>
+        <div class="clear"></div>
 		<p class="address_add submit">
-			<a href="{$link->getPageLink('address', true, NULL, "back={$back_order_page}?step=1{if $back}&mod={$back}{/if}")}" title="{l s='Add'}" class="button_large">{l s='Add a new address'}</a>
+			<a href="{$link->getPageLink('address', true, NULL, "back={$back_order_page}?step=1{if $back}&mod={$back}{/if}")}" title="{l s='Add'}" class="button right">{l s='Add a new address'}</a>
 		</p>
 		{if !$opc}
+        
 		<div id="ordermsg" class="clearfix">
 			<p class="txt">{l s='If you would like to add a comment about your order, please write it below.'}</p>
 			<p class="textarea"><textarea cols="60" rows="3" name="message">{if isset($oldMessage)}{$oldMessage}{/if}</textarea></p>
@@ -253,12 +255,12 @@
 		{/if}
 	</div>
 {if !$opc}
-	<p class="cart_navigation submit">
+	<div class="cart_navigation submit  large-12 columns">
 		<input type="hidden" class="hidden" name="step" value="2" />
 		<input type="hidden" name="back" value="{$back}" />
 		<a href="{$link->getPageLink($back_order_page, true, NULL, "step=0{if $back}&back={$back}{/if}")}" title="{l s='Previous'}" class="button">&laquo; {l s='Previous'}</a>
-		<input type="submit" name="processAddress" value="{l s='Next'} &raquo;" class="exclusive" />
-	</p>
+		<input type="submit" name="processAddress" value="{l s='Next'} &raquo;" class="exclusive button medium" />
+	</div>
 </form>
 {else}
 </div>

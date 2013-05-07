@@ -26,7 +26,7 @@
 {capture name=path}{l s='My account'}{/capture}
 {include file="$tpl_dir./breadcrumb.tpl"}
 
-<h1>{l s='My account'}</h1>
+<h3>{l s='My account'}</h3>
 {if isset($account_created)}
 	<p class="success">
 		{l s='Your account has been created.'}
@@ -49,4 +49,6 @@
 	{/if}
 	{$HOOK_CUSTOMER_ACCOUNT}
 </ul>
-<p><a href="{$base_dir}" title="{l s='Home'}"><img src="{$img_dir}icon/home.gif" alt="{l s='Home'}" class="icon" /></a><a href="{$base_dir}" title="{l s='Home'}">{l s='Home'}</a></p>
+<br /><br />
+<div class="clear"></div>
+<!--<p><a href="{$base_dir}" title="{l s='Home'}"><img src="{$img_dir}icon/home.gif" alt="{l s='Home'}" class="icon" /></a><a href="{$base_dir}" title="{l s='Home'}">{l s='Home'}</a></p>-->

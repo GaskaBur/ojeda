@@ -27,7 +27,7 @@
 {include file="$tpl_dir./breadcrumb.tpl"}
 {include file="$tpl_dir./errors.tpl"}
 
-<h1>{l s='Order history'}</h1>
+<h3>{l s='Order history'}</h3>
 <p>{l s='Here are the orders you have placed since the creation of your account'}.</p>
 
 {if $slowValidation}<p class="warning">{l s='If you have just placed an order, it may take a few minutes for it to be validated. Please refresh this page if your order is missing.'}</p>{/if}
@@ -85,5 +85,5 @@
 
 <ul class="footer_links clearfix">
 	<li><a href="{$link->getPageLink('my-account', true)}"><img src="{$img_dir}icon/my-account.gif" alt="" class="icon" /> {l s='Back to Your Account'}</a></li>
-	<li class="f_right"><a href="{$base_dir}"><img src="{$img_dir}icon/home.gif" alt="" class="icon" /> {l s='Home'}</a></li>
-</ul>
+<!--	<li class="f_right"><a href="{$base_dir}"><img src="{$img_dir}icon/home.gif" alt="" class="icon" /> {l s='Home'}</a></li>
+--></ul>

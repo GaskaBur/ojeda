@@ -32,7 +32,7 @@
 				<div class="opc_float">
 					<p class="title_block">{l s='Instant Checkout'}</p>
 					<p>
-						<input type="button" class="exclusive_large" id="opc_guestCheckout" value="{l s='Checkout as guest'}" />
+						<input type="button" class="exclusive_large button medium" id="opc_guestCheckout" value="{l s='Checkout as guest'}" />
 					</p>
 				</div>
 
@@ -44,7 +44,7 @@
 						<li>{l s='Separate billing and shipping addresses'}</li>
 					</ul>
 					<p>
-						<input type="button" class="button_large" id="opc_createAccount" value="{l s='Create an account'}" />
+						<input type="button" class="button medium" id="opc_createAccount" value="{l s='Create an account'}" />
 					</p>
 				</div>
 				<div class="clear"></div>
@@ -373,7 +373,7 @@
 				</div>
 				{$HOOK_CREATE_ACCOUNT_FORM}
 				<p class="submit">
-					<input type="submit" class="exclusive button" name="submitAccount" id="submitAccount" value="{l s='Save'}" />
+					<input type="submit" class="exclusive button medium" name="submitAccount" id="submitAccount" value="{l s='Save'}" />
 				</p>
 				<p style="display: none;" id="opc_account_saved">
 					{l s='Account informations saved successfully'}

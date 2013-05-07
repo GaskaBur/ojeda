@@ -25,7 +25,7 @@
 {capture name=path}<a href="{$link->getPageLink('my-account', true)}">{l s='My account'}</a><span class="navigation-pipe">{$navigationPipe}</span>{l s='My vouchers'}{/capture}
 {include file="$tpl_dir./breadcrumb.tpl"}
 
-<h1>{l s='My vouchers'}</h1>
+<h3>{l s='My vouchers'}</h3>
 
 {if isset($cart_rules) && count($cart_rules) && $nb_cart_rules}
 <table class="discount std table_block">
@@ -85,5 +85,5 @@
 
 <ul class="footer_links">
 	<li><a href="{$link->getPageLink('my-account', true)}"><img src="{$img_dir}icon/my-account.gif" alt="" class="icon" /> {l s='Back to your account'}</a></li>
-	<li class="f_right"><a href="{$base_dir}"><img src="{$img_dir}icon/home.gif" alt="" class="icon" /> {l s='Home'}</a></li>
-</ul>
+<!--	<li class="f_right"><a href="{$base_dir}"><img src="{$img_dir}icon/home.gif" alt="" class="icon" /> {l s='Home'}</a></li>
+--></ul>

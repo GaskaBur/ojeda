@@ -197,7 +197,7 @@
 		{/if}
 	</div>
 {if !$opc}
-	<p class="cart_navigation submit">
+	<div class="cart_navigation submit  large-12 columns">
 		<input type="hidden" class="hidden" name="step" value="2" />
 		<input type="hidden" name="back" value="{$back}" />
 		{if $back}
@@ -205,8 +205,8 @@
 		{else}
 			<a href="{$link->getPageLink('order', true, NULL, "step=0")}" title="{l s='Previous'}" class="button">&laquo; {l s='Previous'}</a>
 		{/if}
-		<input type="submit" name="processAddress" value="{l s='Next'} &raquo;" class="exclusive" />
-	</p>
+		<input type="submit" name="processAddress" value="{l s='Next'} &raquo;" class="exclusive button medium" />
+	</div>
 </form>
 {else}
 </div>

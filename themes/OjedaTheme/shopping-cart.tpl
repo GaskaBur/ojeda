@@ -26,7 +26,7 @@
 {capture name=path}{l s='Your shopping cart'}{/capture}
 {include file="$tpl_dir./breadcrumb.tpl"}
 
-<h1 id="cart_title">{l s='Shopping cart summary'}</h1>
+<h3 id="cart_title">{l s='Shopping cart summary'}</h3>
 
 {if isset($account_created)}
 	<p class="success">
@@ -54,7 +54,7 @@
 	// ]]>
 	</script>
 	<p style="display:none" id="emptyCartWarning" class="warning">{l s='Your shopping cart is empty.'}</p>
-{if isset($lastProductAdded) AND $lastProductAdded}
+<!--{if isset($lastProductAdded) AND $lastProductAdded}
 	<div class="cart_last_product">
 		<div class="cart_last_product_header">
 			<div class="left">{l s='Last product added'}</div>
@@ -66,10 +66,10 @@
 		</div>
 		<br class="clear" />
 	</div>
-{/if}
-<p>{l s='Your shopping cart contains:'} <span id="summary_products_quantity">{$productNumber} {if $productNumber == 1}{l s='product'}{else}{l s='products'}{/if}</span></p>
-<div id="order-detail-content" class="table_block">
-	<table id="cart_summary" class="std">
+{/if}-->
+<h5 class="large-12 columns">{l s='Your shopping cart contains:'} <span id="summary_products_quantity">{$productNumber} {if $productNumber == 1}{l s='product'}{else}{l s='products'}{/if}</span></h5>
+<div id="order-detail-content" class="table_block row collapse">
+	<table id="cart_summary" class="std large-12 columns">
 		<thead>
 			<tr>
 				<th class="cart_product first_item">{l s='Product'}</th>
@@ -188,7 +188,7 @@
 							<p>
 								<input type="text" class="discount_name" id="discount_name" name="discount_name" value="{if isset($discount_name) && $discount_name}{$discount_name}{/if}" />
 							</p>
-							<p class="submit"><input type="hidden" name="submitDiscount" /><input type="submit" name="submitAddDiscount" value="{l s='OK'}" class="button" /></p>
+							<p class="submit"><input type="hidden" name="submitDiscount" /><input type="submit" name="submitAddDiscount" value="{l s='OK'}" class="button medium" /></p>
 						</fieldset>
 					</form>
 					{if $displayVouchers}
@@ -405,15 +405,16 @@
 	{/if}
 </div>
 {/if}
-<p class="cart_navigation">
+<div class="cart_navigation large-12 columns ">
+<a href="{if (isset($smarty.server.HTTP_REFERER) && strstr($smarty.server.HTTP_REFERER, 'order.php')) || isset($smarty.server.HTTP_REFERER) && strstr($smarty.server.HTTP_REFERER, 'order-opc') || !isset($smarty.server.HTTP_REFERER)}{$link->getPageLink('index')}{else}{$smarty.server.HTTP_REFERER|escape:'htmlall':'UTF-8'|secureReferrer}{/if}" class="button_large button medium" title="{l s='Continue shopping'}">&laquo; {l s='Continue shopping'}</a>
 	{if !$opc}
-		<a href="{if $back}{$link->getPageLink('order', true, NULL, 'step=1&amp;back={$back}')}{else}{$link->getPageLink('order', true, NULL, 'step=1')}{/if}" class="exclusive standard-checkout" title="{l s='Next'}">{l s='Next'} &raquo;</a>
+		<a href="{if $back}{$link->getPageLink('order', true, NULL, 'step=1&amp;back={$back}')}{else}{$link->getPageLink('order', true, NULL, 'step=1')}{/if}" class="exclusive standard-checkout button medium" title="{l s='Next'}">{l s='Next'} &raquo;</a>
 		{if Configuration::get('PS_ALLOW_MULTISHIPPING')}
-			<a href="{if $back}{$link->getPageLink('order', true, NULL, 'step=1&amp;back={$back}')}{else}{$link->getPageLink('order', true, NULL, 'step=1')}{/if}&amp;multi-shipping=1" class="multishipping-button multishipping-checkout exclusive" title="{l s='Next'}">{l s='Next'} &raquo;</a>
+			<a href="{if $back}{$link->getPageLink('order', true, NULL, 'step=1&amp;back={$back}')}{else}{$link->getPageLink('order', true, NULL, 'step=1')}{/if}&amp;multi-shipping=1" class="multishipping-button multishipping-checkout exclusive button medium" title="{l s='Next'}">{l s='Next'} &raquo;</a>
 		{/if}
 	{/if}
-	<a href="{if (isset($smarty.server.HTTP_REFERER) && strstr($smarty.server.HTTP_REFERER, 'order.php')) || isset($smarty.server.HTTP_REFERER) && strstr($smarty.server.HTTP_REFERER, 'order-opc') || !isset($smarty.server.HTTP_REFERER)}{$link->getPageLink('index')}{else}{$smarty.server.HTTP_REFERER|escape:'htmlall':'UTF-8'|secureReferrer}{/if}" class="button_large" title="{l s='Continue shopping'}">&laquo; {l s='Continue shopping'}</a>
-</p>
+	
+</div>
 	{if !empty($HOOK_SHOPPING_CART_EXTRA)}
 		<div class="clear"></div>
 		<div class="cart_navigation_extra">

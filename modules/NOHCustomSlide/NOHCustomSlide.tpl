@@ -1,7 +1,8 @@
-<div class="oj-slide row large-12 columns">
+<div class="oj-slide large-12 columns row">
   <!-- Orbit Container -->
   <div class="orbit-container ">
-    <ul data-orbit="" class="orbit-slides-container" >
+    <ul data-orbit="" class="orbit-slides-container" data-options="timer_speed:3500; animation_speed: 700;
+ bullets:false; stack_on_small:true;" >
         {foreach key=k item=i from=$diapositivas}
           <li>
             <div class="large-8 columns">
@@ -11,7 +12,7 @@
             </div>
             <div class="large-4 columns">
                 <h3><a href="{$i['url']}" title="{$i['url_text']}">{$i['title']}</a></h3>
-                {$i['description']}
+                <p>{$i['description']}</p>
             </div>
           <!--<div class="orbit-caption">...</div>-->
           </li> 

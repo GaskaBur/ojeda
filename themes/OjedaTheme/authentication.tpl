@@ -71,7 +71,7 @@ $(function(){ldelim}
 {/if}
 </script>
 
-<h1>{if !isset($email_create)}{l s='Log in'}{else}{l s='Create your account'}{/if}</h1>
+<h2>{if !isset($email_create)}{l s='Log in'}{else}{l s='Create your account'}{/if}</h2>
 
 {include file="$tpl_dir./errors.tpl"}
 {assign var='stateExist' value=false}
@@ -153,7 +153,8 @@ $(function(){ldelim}
 		</ol>
 	</div>
 	{/if}-->
-	<form action="{$link->getPageLink('authentication', true)}" method="post" id="create-account_form" class="std">
+    <div class="large-6 columns">
+	<form action="{$link->getPageLink('authentication', true)}" method="post" id="create-account_form" class="std" >
 		<fieldset>
 			<h3>{l s='Create your account'}</h3>
 			<div class="form_content clearfix">
@@ -165,13 +166,14 @@ $(function(){ldelim}
 				</p>
 				<p class="submit">
 					{if isset($back)}<input type="hidden" class="hidden" name="back" value="{$back|escape:'htmlall':'UTF-8'}" />{/if}
-					<input type="button" id="SubmitCreate" name="SubmitCreate" class="button_large" value="{l s='Create your account'}" />
+					<input type="button" id="SubmitCreate" name="SubmitCreate" class="button button_large right" value="{l s='Create your account'}" />
 					<input type="hidden" class="hidden" name="SubmitCreate" value="{l s='Create your account'}" />
 				</p>
 			</div>
 		</fieldset>
 	</form>
-
+    </div>
+	<div class="large-6 columns">
 	<form action="{$link->getPageLink('authentication', true)}" method="post" id="login_form" class="std">
 		<fieldset>
 			<h3>{l s='Already registered?'}</h3>
@@ -184,17 +186,17 @@ $(function(){ldelim}
 					<label for="passwd">{l s='Password'}</label>
 					<span><input type="password" id="passwd" name="passwd" value="{if isset($smarty.post.passwd)}{$smarty.post.passwd|stripslashes}{/if}" class="account_input" /></span>
 				</p>
-				<p class="lost_password"><a href="{$link->getPageLink('password')}">{l s='Forgot your password?'}</a></p>
+				<p class="lost_password large-6 columns"><a href="{$link->getPageLink('password')}">{l s='Forgot your password?'}</a></p>
 				<p class="submit">
 					{if isset($back)}<input type="hidden" class="hidden" name="back" value="{$back|escape:'htmlall':'UTF-8'}" />{/if}
-					<input type="submit" id="SubmitLogin" name="SubmitLogin" class="button" value="{l s='Log in'}" />
+					<input type="submit" id="SubmitLogin" name="SubmitLogin" class="button right" value="{l s='Log in'}" />
 				</p>
 			</div>
 		</fieldset>
 	</form>
-
+	</div>
 	{if isset($inOrderProcess) && $inOrderProcess && $PS_GUEST_CHECKOUT_ENABLED}
-	<form action="{$link->getPageLink('authentication', true, NULL, "back=$back")}" method="post" id="account-creation" class="std clearfix">
+	<form action="{$link->getPageLink('authentication', true, NULL, "back=$back")}" method="post" id="new_account_form" class="std clearfix">
 		<fieldset>
 			<h3>{l s='Instant Checkout'}</h3>
 			<div id="opc_account_form" style="display: block; ">

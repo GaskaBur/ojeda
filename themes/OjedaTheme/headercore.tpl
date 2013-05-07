@@ -2,28 +2,23 @@
 
 <div class="oj-wrap banda">
 	<div class="oj-main-container">
-        <header class="oj-main-header row">
-
-            <div id="header" class="grid_9 alpha omega">
-                <div class="oj-branding large-9 columns grid_9 alpha omega">
-                    <div class="oj-logo">
-                        <h1><a href="{$base_dir}" title="{$shop_name|escape:'htmlall':'UTF-8'}">delicatessenojeda.com</a></h1>
-                    </div>
-                    <h2>La mejor selección de <span>productos gourmet</span></h2>
-                    <div class="oj-grupo">
-                    	<a href="http://grupojeda.com" title="Grupo Ojeda" target="_blank">Grupo Ojeda</a>
-                    </div>
-                </div><!-- branding -->   
-                <div id="header_right" class="grid_6 omega">
-    				{$HOOK_TOP}
-    			</div> 
-            </div>
-
-
-        </header> <!-- main-header --> 
+        <header id="header" class="oj-main-header row">
+            <div class="oj-branding large-9 columns">
+                <div class="oj-logo">
+                    <h2><a href="{$base_dir}" title="{$shop_name|escape:'htmlall':'UTF-8'}">{$shop_name|escape:'htmlall':'UTF-8'}</a></h2>
+                </div>
+                <h3>La mejor selección de <span>productos gourmet</span></h3>
+                <div class="oj-grupo">
+                    <a href="http://grupojeda.com" title="Grupo Ojeda" target="_blank" title="Delicatessen Ojeda pertenece a Grupo Ojeda">Grupo Ojeda</a>
+                </div>
+            </div><!-- oj-branding -->   
+            <div id="header_right" class="large-3 columns">
+                {$HOOK_TOP}
+            </div> 
+        </header> <!-- main-header --> 		
 
         {$HOOK_MENU_TOP_OJEDA}
         <div class="oj-main-content row">
-            <div id="center_column">
+            <div id="center_column" class="">
                 {$HOOK_MENU_OJEDA_CATEGORIES}
-                <div class="clear"></div>
+                

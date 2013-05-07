@@ -26,9 +26,9 @@
 {if isset($products)}
 	<!-- Products list -->
     <div class="oj-prod row">
-	<ul class="oj-productos row collapse large-12 columns"><!-- id="product_list" -->
+	<ul class="oj-productos row collapse large-12 columns large-block-grid-4"><!-- id="product_list" -->
 	{foreach from=$products item=product name=products}
-		<li class="large-3 columns panel">  <!-- {if $smarty.foreach.products.first}first_item{elseif $smarty.foreach.products.last}last_item{/if} {if $smarty.foreach.products.index % 2}alternate_item{else}item{/if} ">  ajax_block_product clearfix -->
+		<li class="">  <!-- {if $smarty.foreach.products.first}first_item{elseif $smarty.foreach.products.last}last_item{/if} {if $smarty.foreach.products.index % 2}alternate_item{else}item{/if} ">  ajax_block_product clearfix -->
 			<!--<div class="left_block">
 				{if isset($comparator_max_item) && $comparator_max_item}
 					<p class="compare">
@@ -38,15 +38,16 @@
 				{/if}
 			</div>
 			<div class="center_block">-->
+            <div class="oj-prod-contenedor">
 				<a href="{$product.link|escape:'htmlall':'UTF-8'}" class="oj-prodpic product_img_link" title="{$product.name|escape:'htmlall':'UTF-8'}">
-					<img src="{$link->getImageLink($product.link_rewrite, $product.id_image, 'home_default')}" alt="{$product.legend|escape:'htmlall':'UTF-8'}" {if isset($homeSize)} width="{$homeSize.width}" height="{$homeSize.height}"{/if} />
+					<img src="{$link->getImageLink($product.link_rewrite, $product.id_image, 'home_default')}" alt="{$product.name|escape:'htmlall':'UTF-8'}" {if isset($homeSize)} width="{$homeSize.width}" height="{$homeSize.height}"{/if} />
 					<!--{if isset($product.new) && $product.new == 1}<span class="new">{l s='New'}</span>{/if}-->
 				</a>
                 <div class="precio content_price"><!--class="price" style="display: inline;"-->
 					{if isset($product.show_price) && $product.show_price && !isset($restricted_country_mode)}<span >{if !$priceDisplay}{convertPrice price=$product.price}{else}{convertPrice price=$product.price_tax_exc}{/if}</span><br />{/if}
 					<!--{if isset($product.available_for_order) && $product.available_for_order && !isset($restricted_country_mode)}<span class="availability">{if ($product.allow_oosp || $product.quantity > 0)}{l s='Available'}{elseif (isset($product.quantity_all_versions) && $product.quantity_all_versions > 0)}{l s='Product available with different options'}{else}{l s='Out of stock'}{/if}</span>{/if}-->
 				</div>
-				<a class="oj-prodtitle" href="{$product.link|escape:'htmlall':'UTF-8'}" title="{$product.name|escape:'htmlall':'UTF-8'}"><span>{$product.name|escape:'htmlall':'UTF-8'|truncate:35:'...'}</span></a>
+				<a class="oj-prodtitle" href="{$product.link|escape:'htmlall':'UTF-8'}" title="{$product.name|escape:'htmlall':'UTF-8'}"><span>{$product.name|escape:'htmlall':'UTF-8'|truncate:50:'...'}</span></a>
 				<!--<p class="product_desc"><a href="{$product.link|escape:'htmlall':'UTF-8'}" title="{$product.description_short|strip_tags:'UTF-8'|truncate:360:'...'}" >{$product.description_short|strip_tags:'UTF-8'|truncate:360:'...'}</a></p>
 			</div>
 			<div class="right_block">-->
@@ -60,9 +61,9 @@
 				{if ($product.id_product_attribute == 0 || (isset($add_prod_display) && ($add_prod_display == 1))) && $product.available_for_order && !isset($restricted_country_mode) && $product.minimal_quantity <= 1 && $product.customizable != 2 && !$PS_CATALOG_MODE}
 					{if ($product.allow_oosp || $product.quantity > 0)}
 						{if isset($static_token)}
-							<a class="button compra ajax_add_to_cart_button exclusive" rel="ajax_id_product_{$product.id_product|intval}" href="{$link->getPageLink('cart',false, NULL, "add&amp;id_product={$product.id_product|intval}&amp;token={$static_token}", false)}" title="{l s='Add to cart'}"><span></span>{l s='Add to cart'}</a>
+							<a class="button compra ajax_add_to_cart_button exclusive" rel="ajax_id_product_{$product.id_product|intval}" href="{$link->getPageLink('cart',false, NULL, "add&amp;id_product={$product.id_product|intval}&amp;token={$static_token}", false)}" title="{l s='Add to cart'}"><span></span><strong>{l s='Add to cart'}</strong></a>
 						{else}
-							<a class="button compra ajax_add_to_cart_button exclusive" rel="ajax_id_product_{$product.id_product|intval}" href="{$link->getPageLink('cart',false, NULL, "add&amp;id_product={$product.id_product|intval}", false)}" title="{l s='Add to cart'}"><span></span>{l s='Add to cart'}</a>
+							<a class="button compra ajax_add_to_cart_button exclusive" rel="ajax_id_product_{$product.id_product|intval}" href="{$link->getPageLink('cart',false, NULL, "add&amp;id_product={$product.id_product|intval}", false)}" title="{l s='Add to cart'}"><span></span><strong>{l s='Add to cart'}</strong></a>
 						{/if}						
 					{else}
 						<span class="exclusive"><span></span>{l s='Add to cart'}</span><br />
@@ -70,6 +71,7 @@
 				{/if}
 				<!--<a class="button lnk_view" href="{$product.link|escape:'htmlall':'UTF-8'}" title="{l s='View'}">{l s='View'}</a>
 			</div>-->
+            </div><!-- oj-prod-contenedor -->
 		</li>
 	{/foreach}
 	</ul></div>

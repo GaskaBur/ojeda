@@ -69,9 +69,9 @@ $(function(){ldelim}
 {capture name=path}{l s='Your addresses'}{/capture}
 {include file="$tpl_dir./breadcrumb.tpl"}
 
-<h1>{l s='Your addresses'}</h1>
+<h3>{l s='Your addresses'}</h3>
 
-<h3>
+<h5>
 {if isset($id_address) && (isset($smarty.post.alias) || isset($address->alias))}
 	{l s='Modify address'} 
 	{if isset($smarty.post.alias)}
@@ -82,7 +82,7 @@ $(function(){ldelim}
 {else}
 	{l s='To add a new address, please fill out the form below.'}
 {/if}
-</h3>
+</h5>
 
 {include file="$tpl_dir./errors.tpl"}
 
@@ -90,12 +90,12 @@ $(function(){ldelim}
 
 <form action="{$link->getPageLink('address', true)}" method="post" class="std" id="add_adress">
 	<fieldset>
-		<h3>{if isset($id_address)}{l s='Your address'}{else}{l s='New address'}{/if}</h3>
-		<p class="required text dni">
-			<label for="dni">{l s='Identification number'}</label>
+		<h5>{if isset($id_address)}{l s='Your address'}{else}{l s='New address'}{/if}</h5>
+		<div class="large-6 columns borde">
+        <p class="required text dni">
+			<label for="dni">{l s='Identification number'}<sup>*</sup> ({l s='DNI / NIF / NIE'})</label>
 			<input type="text" class="text" name="dni" id="dni" value="{if isset($smarty.post.dni)}{$smarty.post.dni}{else}{if isset($address->dni)}{$address->dni}{/if}{/if}" />
-			<span class="form_info">{l s='DNI / NIF / NIE'}</span>
-			<sup>*</sup>
+			<!--<span class="form_info"></span>-->
 		</p>
 	{assign var="stateExist" value="false"}
 	{foreach from=$ordered_adr_fields item=field_name}
@@ -144,12 +144,16 @@ $(function(){ldelim}
 			<input type="text" id="address2" name="address2" value="{if isset($smarty.post.address2)}{$smarty.post.address2}{else}{if isset($address->address2)}{$address->address2}{/if}{/if}" />
 		</p>
 		{/if}
+    
+        <div class="large-6 columns">
 		{if $field_name eq 'postcode'}
 		<p class="required postcode text">
 			<label for="postcode">{l s='Zip / Postal Code'} <sup>*</sup></label>
 			<input type="text" id="postcode" name="postcode" value="{if isset($smarty.post.postcode)}{$smarty.post.postcode}{else}{if isset($address->postcode)}{$address->postcode}{/if}{/if}" onkeyup="$('#postcode').val($('#postcode').val().toUpperCase());" />
 		</p>
 		{/if}
+        </div>
+        <div class="large-6 columns">
 		{if $field_name eq 'city'}
 		<p class="required text">
 			<label for="city">{l s='City'} <sup>*</sup></label>
@@ -160,11 +164,15 @@ $(function(){ldelim}
 			but it's deprecated
 		*}
 		{/if}
+           	</div>
 		{if $field_name eq 'Country:name' || $field_name eq 'country'}
 		<p class="required select">
 			<label for="id_country">{l s='Country'} <sup>*</sup></label>
 			<select id="id_country" name="id_country">{$countries_list}</select>
 		</p>
+         </div>
+        <div class="large-6 columns">
+        
 		{if $vatnumber_ajax_call}
 		<script type="text/javascript">
 		var ajaxurl = '{$ajaxurl}';
@@ -229,12 +237,14 @@ $(function(){ldelim}
 			<label for="alias">{l s='Assign an address title for future reference'} <sup>*</sup></label>
 			<input type="text" id="alias" name="alias" value="{if isset($smarty.post.alias)}{$smarty.post.alias}{else if isset($address->alias)}{$address->alias}{else if isset($select_address)}{l s='My address'}{/if}" />
 		</p>
-	</fieldset>
-	<p class="submit2">
+        <p class="submit2">
 		{if isset($id_address)}<input type="hidden" name="id_address" value="{$id_address|intval}" />{/if}
 		{if isset($back)}<input type="hidden" name="back" value="{$back}" />{/if}
 		{if isset($mod)}<input type="hidden" name="mod" value="{$mod}" />{/if}
 		{if isset($select_address)}<input type="hidden" name="select_address" value="{$select_address|intval}" />{/if}
 		<input type="submit" name="submitAddress" id="submitAddress" value="{l s='Save'}" class="button" />
 	</p>
+    </div>
+	</fieldset>
+	
 </form>

@@ -48,9 +48,9 @@
 		{assign var='requestNb' value=$link->getPaginationLink(false, false, true, false, false, true)}
 	{/if}
 	<!-- Pagination -->
-	<div id="pagination" class="pagination">
+	<div id="pagination" class="large-4 columns">
 	{if $start!=$stop}
-		<ul class="pagination">
+		<ul class="pagination large-12 columns large-centered">
 		{if $p != 1}
 			{assign var='p_previous' value=$p-1}
 			<li id="pagination_previous"><a {$no_follow_text} href="{$link->goPage($requestPage, $p_previous)}">&laquo;&nbsp;{l s='Previous'}</a></li>
@@ -95,13 +95,14 @@
 		</ul>
 	{/if}
 	{if $nb_products > $products_per_page}
+    <!--<div class="large-6 columns">
 		<form action="{if !is_array($requestNb)}{$requestNb}{else}{$requestNb.requestUrl}{/if}" method="get" class="pagination">
-			<p>
+			
 				{if isset($search_query) AND $search_query}<input type="hidden" name="search_query" value="{$search_query|escape:'htmlall':'UTF-8'}" />{/if}
 				{if isset($tag) AND $tag AND !is_array($tag)}<input type="hidden" name="tag" value="{$tag|escape:'htmlall':'UTF-8'}" />{/if}
-				<input type="submit" class="button_mini" value="{l s='OK'}" />
-				<label for="nb_item">{l s='items:'}</label>
-				<select name="n" id="nb_item">
+				
+				<label for="nb_item" class="large-5 columns">{l s='items:'}</label>
+				<select name="n" id="nb_item" class="large-3 columns">
 				{assign var="lastnValue" value="0"}
 				{foreach from=$nArray item=nValue}
 					{if $lastnValue <= $nb_products}
@@ -117,8 +118,9 @@
 						{/if}
 					{/foreach}
 				{/if}
-			</p>
+			<input type="submit" class="button_mini large-3 columns" value="{l s='OK'}" />
 		</form>
+        </div>-->
 	{/if}
 	</div>
 	<!-- /Pagination -->

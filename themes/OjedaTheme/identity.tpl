@@ -26,7 +26,7 @@
 {capture name=path}<a href="{$link->getPageLink('my-account', true)}">{l s='My account'}</a><span class="navigation-pipe">{$navigationPipe}</span>{l s='Your personal information'}{/capture}
 {include file="$tpl_dir./breadcrumb.tpl"}
 
-<h1>{l s='Your personal information'}</h1>
+<h3>{l s='Your personal information'}</h3>
 
 {include file="$tpl_dir./errors.tpl"}
 
@@ -36,17 +36,20 @@
 		{if isset($pwd_changed)}<br />{l s='Your password has been sent to your e-mail:'} {$email}{/if}
 	</p>
 {else}
-	<h3>{l s='Please be sure to update your personal information if it has changed.'}</h3>
+	<h5>{l s='Please be sure to update your personal information if it has changed.'}</h5>
 	<p class="required"><sup>*</sup>{l s='Required field'}</p>
 	<form action="{$link->getPageLink('identity', true)}" method="post" class="std">
 		<fieldset>
+         
+        <div class="large-6 columns borde">
 			<p class="radio">
-				<span>{l s='Title'}</span>
+				<span class="inline left">{l s='Title'}: </span>
 				{foreach from=$genders key=k item=gender}
-					<input type="radio" name="id_gender" id="id_gender{$gender->id}" value="{$gender->id|intval}" {if isset($smarty.post.id_gender) && $smarty.post.id_gender == $gender->id}checked="checked"{/if} />
-					<label for="id_gender{$gender->id}" class="top">{$gender->name}</label>
+					<input class="inline left" type="radio" name="id_gender" id="id_gender{$gender->id}" value="{$gender->id|intval}" {if isset($smarty.post.id_gender) && $smarty.post.id_gender == $gender->id}checked="checked"{/if} />
+					<label for="id_gender{$gender->id}" class="top inline left oj-check">{$gender->name}</label>
 				{/foreach}
 			</p>
+            <div class="clear"></div>
 			<p class="required text">
 				<label for="firstname">{l s='First name'} <sup>*</sup></label>
 				<input type="text" id="firstname" name="firstname" value="{$smarty.post.firstname}" />
@@ -59,21 +62,11 @@
 				<label for="email">{l s='E-mail'} <sup>*</sup></label>
 				<input type="text" name="email" id="email" value="{$smarty.post.email}" />
 			</p>
-			<p class="required text">
-				<label for="old_passwd">{l s='Current Password'} <sup>*</sup></label>
-				<input type="password" name="old_passwd" id="old_passwd" />
-			</p>
-			<p class="password">
-				<label for="passwd">{l s='New Password'}</label>
-				<input type="password" name="passwd" id="passwd" />
-			</p>
-			<p class="password">
-				<label for="confirmation">{l s='Confirmation'}</label>
-				<input type="password" name="confirmation" id="confirmation" />
-			</p>
+		
+            
 			<p class="select">
 				<label>{l s='Date of Birth'}</label>
-				<select name="days" id="days">
+				<select name="days" id="days" class="large-3 columns">
 					<option value="">-</option>
 					{foreach from=$days item=v}
 						<option value="{$v}" {if ($sl_day == $v)}selected="selected"{/if}>{$v}&nbsp;&nbsp;</option>
@@ -93,40 +86,61 @@
 					{l s='November'}
 					{l s='December'}
 				*}
-				<select id="months" name="months">
+				<select id="months" name="months" class="large-6 columns">
 					<option value="">-</option>
 					{foreach from=$months key=k item=v}
 						<option value="{$k}" {if ($sl_month == $k)}selected="selected"{/if}>{l s=$v}&nbsp;</option>
 					{/foreach}
 				</select>
-				<select id="years" name="years">
+				<select id="years" name="years" class="large-3 columns">
 					<option value="">-</option>
 					{foreach from=$years item=v}
 						<option value="{$v}" {if ($sl_year == $v)}selected="selected"{/if}>{$v}&nbsp;&nbsp;</option>
 					{/foreach}
 				</select>
 			</p>
+            
+           </div>
+        <div class="large-6 columns">
+            	<p class="required text">
+				<label for="old_passwd">{l s='Current Password'} <sup>*</sup></label>
+				<input type="password" name="old_passwd" id="old_passwd" />
+			</p>
+			<p class="password">
+				<label for="passwd">{l s='New Password'}</label>
+				<input type="password" name="passwd" id="passwd" />
+			</p>
+			<p class="password">
+				<label for="confirmation">{l s='Confirmation'}</label>
+				<input type="password" name="confirmation" id="confirmation" />
+			</p>
+            
+            
+            
 			{if $newsletter}
 			<p class="checkbox">
-				<input type="checkbox" id="newsletter" name="newsletter" value="1" {if isset($smarty.post.newsletter) && $smarty.post.newsletter == 1} checked="checked"{/if} />
-				<label for="newsletter">{l s='Sign up for our newsletter'}</label>
+				<input class="inline left" type="checkbox" id="newsletter" name="newsletter" value="1" {if isset($smarty.post.newsletter) && $smarty.post.newsletter == 1} checked="checked"{/if} />
+				<label class="inline left oj-check" for="newsletter">{l s='Sign up for our newsletter'}</label>
 			</p>
+            <div class="clear"></div>
 			<p class="checkbox">
-				<input type="checkbox" name="optin" id="optin" value="1" {if isset($smarty.post.optin) && $smarty.post.optin == 1} checked="checked"{/if} />
-				<label for="optin">{l s='Receive special offers from our partners'}</label>
+				<input class="inline left" type="checkbox" name="optin" id="optin" value="1" {if isset($smarty.post.optin) && $smarty.post.optin == 1} checked="checked"{/if} />
+				<label class="inline left oj-check" for="optin">{l s='Receive special offers from our partners'}</label>
 			</p>
 			{/if}
+            <div class="clear"></div>
 			<p class="submit">
-				<input type="submit" class="button" name="submitIdentity" value="{l s='Save'}" />
+				<input type="submit" class="button right" name="submitIdentity" value="{l s='Save'}" />
 			</p>
-			<p id="security_informations">
+			<!--<p id="security_informations">
 				{l s='[Insert customer data privacy clause or law here, if applicable]'}
-			</p>
+			</p>-->
+            </div>
 		</fieldset>
 	</form>
 {/if}
 
 <ul class="footer_links">
 	<li><a href="{$link->getPageLink('my-account', true)}"><img src="{$img_dir}icon/my-account.gif" alt="" class="icon" /></a><a href="{$link->getPageLink('my-account', true)}">{l s='Back to your account'}</a></li>
-	<li class="f_right"><a href="{$base_dir}"><img src="{$img_dir}icon/home.gif" alt="" class="icon" /> {l s='Home'}</a></li>
-</ul>
+<!--	<li class="f_right"><a href="{$base_dir}"><img src="{$img_dir}icon/home.gif" alt="" class="icon" /> {l s='Home'}</a></li>
+--></ul>

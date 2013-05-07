@@ -75,5 +75,6 @@
 		<span>5. {l s='Payment'}</span>
 	</li>
 </ul>
+<div class="clear"></div>
 <!-- /Steps -->
 {/if}

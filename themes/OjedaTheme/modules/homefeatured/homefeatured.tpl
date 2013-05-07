@@ -24,23 +24,25 @@
 *}
 
 <!-- MODULE Home Featured Products -->
-<div class="oj-prod large-12 columns">
-	<h3 class="large-12 columns"><span> Productos recomendados </span></h3>
-	{if isset($products) AND $products}
-		
-			{assign var='liHeight' value=250}
+<div class="oj-enunciado large-12 columns">
+<h3 class=""><span> Productos recomendados </span></h3>	
+</div>
+<div class="oj-prod row">
+{if isset($products) AND $products}
+			<!--{assign var='liHeight' value=250}
 			{assign var='nbItemsPerLine' value=4}
 			{assign var='nbLi' value=$products|@count}
 			{math equation="nbLi/nbItemsPerLine" nbLi=$nbLi nbItemsPerLine=$nbItemsPerLine assign=nbLines}
-			{math equation="nbLines*liHeight" nbLines=$nbLines|ceil liHeight=$liHeight assign=ulHeight}
-			<ul class="oj-productos ">
+			{math equation="nbLines*liHeight" nbLines=$nbLines|ceil liHeight=$liHeight assign=ulHeight}-->
+			<ul class="oj-productos row collapse large-12 columns large-block-grid-4">
 			
 			{foreach from=$products item=product name=homeFeaturedProducts}
-				{math equation="(total%perLine)" total=$smarty.foreach.homeFeaturedProducts.total perLine=$nbItemsPerLine assign=totModulo}
-				{if $totModulo == 0}{assign var='totModulo' value=$nbItemsPerLine}{/if}
-				<li class="large-3 columns panel">
-					<a class="oj-prodpic" href="{$product.link}" ><img src="{$link->getImageLink($product.link_rewrite, $product.id_image, 'large_default')}" /></a>
-					<div class="precio">
+				<!--{math equation="(total%perLine)" total=$smarty.foreach.homeFeaturedProducts.total perLine=$nbItemsPerLine assign=totModulo}
+				{if $totModulo == 0}{assign var='totModulo' value=$nbItemsPerLine}{/if}-->
+				<li class="">
+                <div class="oj-prod-contenedor">
+					<a class="oj-prodpic product_img_link" href="{$product.link}" title="{$product.name|escape:'htmlall':'UTF-8'}" ><img src="{$link->getImageLink($product.link_rewrite, $product.id_image, 'home_default')}" alt="{$product.name|escape:'htmlall':'UTF-8'}" {if isset($homeSize)} width="{$homeSize.width}" height="{$homeSize.height}"{/if} /></a>
+					<div class="precio content_price">
 		            	<span>
 		            		{if !$priceDisplay}
 		            			{convertPrice price=$product.price}
@@ -49,8 +51,9 @@
             				{/if}
 		            	</span>
 		            </div>
-		            <a class="oj-prodtitle" href="{$product.link}" title=""	><span>{$product.name|truncate:35:'...'|escape:'htmlall':'UTF-8'}</span></a>
+		            <a class="oj-prodtitle" href="{$product.link}" title=""	><span>{$product.name|truncate:50:'...'|escape:'htmlall':'UTF-8'}</span></a>
 		            <a class="button compra" href="{$link->getPageLink('cart')}?qty=1&amp;id_product={$product.id_product}&amp;token={$static_token}&amp;add" title="a la cesta">Añadir a la cesta</a>
+                    </div> <!-- oj-prod-contenedor -->
 		        </li>
 				
 			{/foreach}
@@ -59,4 +62,9 @@
 	{else}
 		<p>{l s='No featured products' mod='homefeatured'}</p>
 	{/if}
+    <div class="row">
+    <div class="large-6 large-centered columns">
+    	<a href="{$link->getCategoryLink('2', 'productos-delicatessen-recomendados')}" title="Ver todos los productos recomendados de Delicatessen Ojeda" >Ver todos los productos recomendados de Delicatessen Ojeda »</a>
+    </div>
+    </div>
 </div>

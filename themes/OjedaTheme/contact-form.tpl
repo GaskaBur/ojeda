@@ -26,7 +26,7 @@
 {capture name=path}{l s='Contact'}{/capture}
 {include file="$tpl_dir./breadcrumb.tpl"}
 
-<h1>{l s='Customer Service'} - {if isset($customerThread) && $customerThread}{l s='Your reply'}{else}{l s='Contact us'}{/if}</h1>
+<h3>{l s='Customer Service'} - {if isset($customerThread) && $customerThread}{l s='Your reply'}{else}{l s='Contact us'}{/if}</h3>
 
 {if isset($confirmation)}
 	<p>{l s='Your message has been successfully sent to our team.'}</p>
@@ -44,7 +44,8 @@
 	<form action="{$request_uri|escape:'htmlall':'UTF-8'}" method="post" class="std" enctype="multipart/form-data">
 		<fieldset>
 			<h3>{l s='Send a message'}</h3>
-			<p class="select">
+			<div class="large-6 columns borde">
+            <p class="select">
 				<label for="id_contact">{l s='Subject Heading'}</label>
 			{if isset($customerThread.id_contact)}
 				{foreach from=$contacts item=contact}
@@ -65,7 +66,7 @@
 			<p id="desc_contact0" class="desc_contact">&nbsp;</p>
 				{foreach from=$contacts item=contact}
 					<p id="desc_contact{$contact.id_contact|intval}" class="desc_contact" style="display:none;">
-						{$contact.description|escape:'htmlall':'UTF-8'}
+						<small>{$contact.description|escape:'htmlall':'UTF-8'}</small>
 					</p>
 				{/foreach}
 			{/if}
@@ -77,6 +78,7 @@
 					<input type="text" id="email" name="from" value="{$email|escape:'htmlall':'UTF-8'}" />
 				{/if}
 			</p>
+            
 		{if !$PS_CATALOG_MODE}
 			{if (!isset($customerThread.id_order) || $customerThread.id_order > 0)}
 			<p class="text select">
@@ -113,6 +115,8 @@
 			</p>
 			{/if}
 		{/if}
+        </div>
+       <div class="large-6 columns">
 		{if $fileupload == 1}
 			<p class="text">
 			<label for="fileUpload">{l s='Attach File'}</label>
@@ -125,8 +129,9 @@
 			 <textarea id="message" name="message" rows="15" cols="10">{if isset($message)}{$message|escape:'htmlall':'UTF-8'|stripslashes}{/if}</textarea>
 		</p>
 		<p class="submit">
-			<input type="submit" name="submitMessage" id="submitMessage" value="{l s='Send'}" class="button_large" onclick="$(this).hide();" />
+			<input type="submit" name="submitMessage" id="submitMessage" value="{l s='Send'}" class="button_large button right" onclick="$(this).hide();" />
 		</p>
+        </div>
 	</fieldset>
 </form>
 {/if}

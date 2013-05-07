@@ -45,7 +45,7 @@
 				<input type="hidden" name="order_qte_input[{$key}]" value="{$value}"/>
 			{/foreach}
 			<input type="hidden" name="id_order" value="{$id_order}"/>
-			<input class="button_large" type="submit" name="submitReturnMerchandise" value="{l s='Make an RMA slip'}"/>
+			<input class="button_large button medium" type="submit" name="submitReturnMerchandise" value="{l s='Make an RMA slip'}"/>
 		</form>
 	</p>
 {/if}

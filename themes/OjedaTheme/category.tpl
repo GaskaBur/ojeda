@@ -94,24 +94,18 @@
 		{/if}-->
 
 		{if $products}
-			<div class="content_sortPagiBar">
-				{include file="$tpl_dir./pagination.tpl"}
-				<div class="sortPagiBar clearfix">
-					{include file="./product-sort.tpl"}
-					{include file="./product-compare.tpl"}
-					{include file="./nbr-product-page.tpl"}
-				</div>
+			<div class="content_sortPagiBar large-12 columns  row">
+                	{include file="./product-sort.tpl"}
+                    {include file="$tpl_dir./pagination.tpl"}
+                    {include file="$tpl_dir./nbr-product-page.tpl"}
 			</div>
-			<div class="clear"></div>
+			
 			{include file="./product-list.tpl" products=$products}
-			<div class="clear"></div>
-			<div class="content_sortPagiBar">
-				<div class="sortPagiBar clearfix">
-					{include file="./product-sort.tpl"}
-					{include file="./product-compare.tpl"}
-					{include file="./nbr-product-page.tpl"}
-				</div>
-				{include file="./pagination.tpl"}
+			
+			<div class="content_sortPagiBar large-12 columns row ">
+                	{include file="./product-sort.tpl"}
+                    {include file="$tpl_dir./pagination.tpl"}
+                    {include file="$tpl_dir./nbr-product-page.tpl"}
 			</div>
 		{else}
         	<div class="noprod">No hay productos en estos momentos.</div>
