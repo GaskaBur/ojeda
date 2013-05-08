@@ -71,7 +71,7 @@ $(function(){ldelim}
 {/if}
 </script>
 
-<h2>{if !isset($email_create)}{l s='Log in'}{else}{l s='Create your account'}{/if}</h2>
+<h3>{if !isset($email_create)}{l s='Log in'}{else}{l s='Create your account'}{/if}</h3>
 
 {include file="$tpl_dir./errors.tpl"}
 {assign var='stateExist' value=false}
@@ -224,7 +224,7 @@ $(function(){ldelim}
 				</p>
 				<p class="select">
 					<span>{l s='Date of Birth'}</span>
-					<select id="days" name="days">
+					<select id="days" name="days" class="large-3 columns">
 						<option value="">-</option>
 						{foreach from=$days item=day}
 							<option value="{$day}" {if ($sl_day == $day)} selected="selected"{/if}>{$day}&nbsp;&nbsp;</option>
@@ -244,13 +244,13 @@ $(function(){ldelim}
 						  {l s='November'}
 						  {l s='December'}
 					  *}
-					<select id="months" name="months">
+					<select id="months" name="months" class="large-3 columns">
 						<option value="">-</option>
 						{foreach from=$months key=k item=month}
 							<option value="{$k}" {if ($sl_month == $k)} selected="selected"{/if}>{l s=$month}&nbsp;</option>
 						{/foreach}
 					</select>
-					<select id="years" name="years">
+					<select id="years" name="years" class="large-3 columns">
 						<option value="">-</option>
 						{foreach from=$years item=year}
 							<option value="{$year}" {if ($sl_year == $year)} selected="selected"{/if}>{$year}&nbsp;&nbsp;</option>
@@ -259,12 +259,12 @@ $(function(){ldelim}
 				</p>
 				{if isset($newsletter) && $newsletter}
 					<p class="checkbox">
-						<input type="checkbox" name="newsletter" id="newsletter" value="1" {if isset($smarty.post.newsletter) && $smarty.post.newsletter == '1'}checked="checked"{/if}>
-						<label for="newsletter">{l s='Sign up for our newsletter'}</label>
+						<input class="inline left" type="checkbox" name="newsletter" id="newsletter" value="1" {if isset($smarty.post.newsletter) && $smarty.post.newsletter == '1'}checked="checked"{/if}>
+						<label class="inline left oj-check" for="newsletter">{l s='Sign up for our newsletter'}</label>
 					</p>
 					<p class="checkbox">
-						<input type="checkbox" name="optin" id="optin" value="1" {if isset($smarty.post.optin) && $smarty.post.optin == '1'}checked="checked"{/if}>
-						<label for="optin">{l s='Receive special offers from our partners'}</label>
+						<input class="inline left"type="checkbox" name="optin" id="optin" value="1" {if isset($smarty.post.optin) && $smarty.post.optin == '1'}checked="checked"{/if}>
+						<label class="inline left oj-check" for="optin">{l s='Receive special offers from our partners'}</label>
 					</p>
 				{/if}
 				<h3>{l s='Delivery address'}</h3>
@@ -374,14 +374,16 @@ $(function(){ldelim}
 <form action="{$link->getPageLink('authentication', true)}" method="post" id="account-creation_form" class="std">
 	{$HOOK_CREATE_ACCOUNT_TOP}
 	<fieldset class="account_creation">
-		<h3>{l s='Your personal information'}</h3>
+		<h5>{l s='Your personal information'}</h5>
+        <div class="large-6 columns borde">
 		<p class="radio required">
-			<span>{l s='Title'}</span>
+			<span class="inline left">{l s='Title'}: </span>
 			{foreach from=$genders key=k item=gender}
-				<input type="radio" name="id_gender" id="id_gender{$gender->id}" value="{$gender->id}" {if isset($smarty.post.id_gender) && $smarty.post.id_gender == $gender->id}checked="checked"{/if} />
-				<label for="id_gender{$gender->id}" class="top">{$gender->name}</label>
+				<input class="inline left" type="radio" name="id_gender" id="id_gender{$gender->id}" value="{$gender->id}" {if isset($smarty.post.id_gender) && $smarty.post.id_gender == $gender->id}checked="checked"{/if} />
+				<label for="id_gender{$gender->id}" class="top inline left oj-check">{$gender->name}</label>
 			{/foreach}
 		</p>
+        <div class="clear"></div>
 		<p class="required text">
 			<label for="customer_firstname">{l s='First name'} <sup>*</sup></label>
 			<input onkeyup="$('#firstname').val(this.value);" type="text" class="text" id="customer_firstname" name="customer_firstname" value="{if isset($smarty.post.customer_firstname)}{$smarty.post.customer_firstname}{/if}" />
@@ -394,14 +396,17 @@ $(function(){ldelim}
 			<label for="email">{l s='E-mail'} <sup>*</sup></label>
 			<input type="text" class="text" id="email" name="email" value="{if isset($smarty.post.email)}{$smarty.post.email}{/if}" />
 		</p>
+        </div>
+        <div class="large-6 columns">
 		<p class="required password">
 			<label for="passwd">{l s='Password'} <sup>*</sup></label>
 			<input type="password" class="text" name="passwd" id="passwd" />
-			<span class="form_info">{l s='(5 characters min.)'}</span>
+			<span class="form_info"><small>{l s='(5 characters min.)'}</small></span>
 		</p>
 		<p class="select">
 			<span>{l s='Date of Birth'}</span>
-			<select id="days" name="days">
+            <br />
+			<select id="days" name="days" class="large-3 columns">
 				<option value="">-</option>
 				{foreach from=$days item=day}
 					<option value="{$day}" {if ($sl_day == $day)} selected="selected"{/if}>{$day}&nbsp;&nbsp;</option>
@@ -421,29 +426,33 @@ $(function(){ldelim}
 				{l s='November'}
 				{l s='December'}
 			*}
-			<select id="months" name="months">
+			<select id="months" name="months" class="large-6 columns">
 				<option value="">-</option>
 				{foreach from=$months key=k item=month}
 					<option value="{$k}" {if ($sl_month == $k)} selected="selected"{/if}>{l s=$month}&nbsp;</option>
 				{/foreach}
 			</select>
-			<select id="years" name="years">
+			<select id="years" name="years" class="large-3 columns">
 				<option value="">-</option>
 				{foreach from=$years item=year}
 					<option value="{$year}" {if ($sl_year == $year)} selected="selected"{/if}>{$year}&nbsp;&nbsp;</option>
 				{/foreach}
 			</select>
 		</p>
+        <br />
+        <br />
 		{if $newsletter}
 		<p class="checkbox" >
-			<input type="checkbox" name="newsletter" id="newsletter" value="1" {if isset($smarty.post.newsletter) AND $smarty.post.newsletter == 1} checked="checked"{/if} />
-			<label for="newsletter">{l s='Sign up for our newsletter'}</label>
+			<input class="inline left" type="checkbox" name="newsletter" id="newsletter" value="1" {if isset($smarty.post.newsletter) AND $smarty.post.newsletter == 1} checked="checked"{/if} />
+			<label class="inline left oj-check" for="newsletter">{l s='Sign up for our newsletter'}</label>
 		</p>
+        <div class="clear"></div>
 		<p class="checkbox" >
-			<input type="checkbox"name="optin" id="optin" value="1" {if isset($smarty.post.optin) AND $smarty.post.optin == 1} checked="checked"{/if} />
-			<label for="optin">{l s='Receive special offers from our partners'}</label>
+			<input class="inline left" type="checkbox"name="optin" id="optin" value="1" {if isset($smarty.post.optin) AND $smarty.post.optin == 1} checked="checked"{/if} />
+			<label class="inline left oj-check" for="optin">{l s='Receive special offers from our partners'}</label>
 		</p>
 		{/if}
+        </div>
 	</fieldset>
 	{if $b2b_enable}
 	<fieldset class="account_creation">
@@ -580,8 +589,8 @@ $(function(){ldelim}
 		<input type="hidden" name="email_create" value="1" />
 		<input type="hidden" name="is_new_customer" value="1" />
 		{if isset($back)}<input type="hidden" class="hidden" name="back" value="{$back|escape:'htmlall':'UTF-8'}" />{/if}
-		<input type="submit" name="submitAccount" id="submitAccount" value="{l s='Register'}" class="exclusive" />
-		<span><sup>*</sup>{l s='Required field'}</span>
+		<input type="submit" name="submitAccount" id="submitAccount" value="{l s='Register'}" class="button exclusive" />
+		<span><sup>*</sup><small>{l s='Required field'}</small></span>
 	</p>
 </form>
 {/if}

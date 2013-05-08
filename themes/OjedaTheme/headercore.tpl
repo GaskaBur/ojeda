@@ -9,7 +9,7 @@
                 </div>
                 <h3>La mejor selección de <span>productos gourmet</span></h3>
                 <div class="oj-grupo">
-                    <a href="http://grupojeda.com" title="Grupo Ojeda" target="_blank" title="Delicatessen Ojeda pertenece a Grupo Ojeda">Grupo Ojeda</a>
+                    <a href="http://grupojeda.com" title="Grupo Ojeda" target="_blank" title="Delicatessen Ojeda pertenece a Grupo Ojeda">Grupo OJEDA</a>
                 </div>
             </div><!-- oj-branding -->   
             <div id="header_right" class="large-3 columns">

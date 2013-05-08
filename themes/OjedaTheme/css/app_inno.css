@@ -192,6 +192,7 @@ nav ul.top-bar {
 	background-repeat:no-repeat;
 	background-position:bottom left;
 	border-right:1px #c3b968 solid;
+	font-family: 'Abel', sans-serif !important;
 }
 
 .oj-branding h3 {
@@ -634,6 +635,10 @@ body .oj-cat h3 span {
 	position:relative !important;
 	z-index:100 !important;
 }*/
+.oj-prod p {
+	clear:both !important;	
+}
+
 .oj-prod ul li a.oj-prodpic {
 	display:block;
 	height:200px !important;
@@ -820,7 +825,7 @@ body .breadcrumbs {
 	font-family: 'Abel', sans-serif !important;
 	text-transform:uppercase;
 	padding-bottom:20px;
-	margin-bottom:0;
+	margin-top:-15px !important;
 	line-height:1.4em;
 	margin-bottom:10px;
 	background-color:transparent;
@@ -1162,7 +1167,8 @@ span.view_scroll_spacer {
 
 
 #short_description_content {
-	padding-bottom:0px !important;
+	padding:0px !important;
+	
 	margin-bottom:10px !important;	
 }
 .product_description {
@@ -1175,10 +1181,11 @@ span.view_scroll_spacer {
 	margin:0px !important;
 	border-left:none !important;
 	border-right:none !important;
-	border-top:none !important;
+	margin-bottom:20px !important;
 }
-
-
+.product_attributes #attributes {
+	width:98%;
+}
 
 /*
 #productsSortForm p label {
@@ -1381,6 +1388,21 @@ p.payment_module a.button.right {
 	float:right;	
 }
 
+.oj-recom {
+	text-align:center !important;
+	margin:20px !important;	
+	width:98% !important;
+}
+
+.orbit-container ul li .large-4 h3{
+	margin-top:30px !important;
+	line-height:22px !important;
+}
+.orbit-container ul li .large-4 p{
+	margin-top:20px !important;
+	line-height:18px !important;
+}
+
 /***** FAVORITEPRODUCTS **********/
 
 #favoriteproducts_block_account .favoriteproduct {
@@ -1394,7 +1416,7 @@ p.payment_module a.button.right {
    margin-left:10px;
   
 }
-
+/*
 .favoriteproduct a.product_img_link {
     border: 1px solid #CCCCCC;
     display: block;
@@ -1421,7 +1443,8 @@ p.payment_module a.button.right {
 	top:10px;
 	right:10px
 }
-.favoriteproduct .remove .icon {cursor:pointer}
+.favoriteproduct .remove .icon {cursor:pointer}*/
+
 
 
 /************** ADAPTACIÓN FOUNDATION 4 A IE8 ***************/

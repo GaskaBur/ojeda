@@ -63,8 +63,8 @@
 		<p>{l s='No featured products' mod='homefeatured'}</p>
 	{/if}
     <div class="row">
-    <div class="large-6 large-centered columns">
-    	<a href="{$link->getCategoryLink('2', 'productos-delicatessen-recomendados')}" title="Ver todos los productos recomendados de Delicatessen Ojeda" >Ver todos los productos recomendados de Delicatessen Ojeda »</a>
+    <div class="large-6 columns oj-recom">
+    	<a href="{$link->getCategoryLink('2', 'productos-delicatessen-recomendados')}" title="Ver todos los productos recomendados de Delicatessen Ojeda" >Ver todos los <strong>productos recomendados</strong> de Delicatessen Ojeda »</a>
     </div>
     </div>
 </div>
