@@ -121,11 +121,29 @@ class BlockBestSellers extends Module
 				$best_sellers[] = $bestseller;
 			}
 
+		if (count($best_sellers) < 5)	
+		{
+			$productosMuestra = array (56,109,58,88,53);
+			$best_sellers = array();
+			$links = new Link();
+			for ($i=0; $i < count($productosMuestra); $i++) { 
+				
+				$p = new Product($productosMuestra[$i]);
+				$pr = array(
+					'name' => $p->name[4],
+					'price'=> Tools::displayPrice(Product::getPriceStatic($productosMuestra[$i], $usetax), $currency),
+					'link' => $links->getProductLink($i),
+					);
+				$best_sellers[] = $pr;
+			}
+		}
+
 		$this->smarty->assign(array(
 			'best_sellers' => $best_sellers,
 			'mediumSize' => Image::getSize(ImageType::getFormatedName('medium')),
 			'smallSize' => Image::getSize(ImageType::getFormatedName('small'))
 		));
+
 		return $this->display(__FILE__, 'blockbestsellers.tpl');
 	}
 

@@ -39,7 +39,6 @@
 			</div>
 			<div class="center_block">-->
             <div class="oj-prod-contenedor">
-            	
 				<a href="{$product.link|escape:'htmlall':'UTF-8'}" class="oj-prodpic product_img_link" title="{$product.name|escape:'htmlall':'UTF-8'}">
 					{if Pack::isPack($product.id_product)}
 						<img src="{$link->getImageLink($product.link_rewrite, $product.id_image, 'thickbox_default')}" alt="{$product.name|escape:'htmlall':'UTF-8'}" {if isset($homeSize)} width="{$homeSize.width}" height="{$homeSize.height}"{/if} />
@@ -57,12 +56,12 @@
 				<!--<p class="product_desc"><a href="{$product.link|escape:'htmlall':'UTF-8'}" title="{$product.description_short|strip_tags:'UTF-8'|truncate:360:'...'}" >{$product.description_short|strip_tags:'UTF-8'|truncate:360:'...'}</a></p>
 			</div>
 			<div class="right_block">-->
-				
-				{if (!$PS_CATALOG_MODE AND ((isset($product.show_price) && $product.show_price) || (isset($product.available_for_order) && $product.available_for_order)))}
-                {if isset($product.on_sale) && $product.on_sale && isset($product.show_price) && $product.show_price && !$PS_CATALOG_MODE}<span class="on_sale">{l s='On sale!'}</span>
+				{if isset($product.on_sale) && $product.on_sale && isset($product.show_price) && $product.show_price && !$PS_CATALOG_MODE}<span class="on_sale">{l s='On sale!'}</span>
 				{elseif isset($product.reduction) && $product.reduction && isset($product.show_price) && $product.show_price && !$PS_CATALOG_MODE}<span class="discount">{l s='Reduced price!'}</span>{/if}
-                {if isset($product.online_only) && $product.online_only}<span class="online_only">{l s='Online only!'}</span>{/if}
-				{/if}				
+				{if (!$PS_CATALOG_MODE AND ((isset($product.show_price) && $product.show_price) || (isset($product.available_for_order) && $product.available_for_order)))}
+				
+				{if isset($product.online_only) && $product.online_only}<span class="online_only">{l s='Online only!'}</span>{/if}
+				{/if}
                 
 				{if ($product.id_product_attribute == 0 || (isset($add_prod_display) && ($add_prod_display == 1))) && $product.available_for_order && !isset($restricted_country_mode) && $product.minimal_quantity <= 1 && $product.customizable != 2 && !$PS_CATALOG_MODE}
 					{if ($product.allow_oosp || $product.quantity > 0)}

@@ -346,17 +346,17 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
 					{assign var='productPriceWithoutReduction' value=$product->getPriceWithoutReduct(true, $smarty.const.NULL)}
 				{/if}
 
-				<p class="our_price_display">
+				<div class="our_price_display">
 				{if $priceDisplay >= 0 && $priceDisplay <= 2}
 					<span id="our_price_display">{convertPrice price=$productPrice}</span>
 					<!--{if $tax_enabled  && ((isset($display_tax_label) && $display_tax_label == 1) OR !isset($display_tax_label))}
-						{if $priceDisplay == 1}{l s='tax excl.'}{else}{l s='tax incl.'}{/if}
+						{if $priceDisplay == 1}<span class="price-iva">{l s='tax excl.'}{else}{l s='tax incl.'}</span>{/if}
 					{/if}-->
 				{/if}
-				</p>
+				</div>
 
 				{if $product->on_sale}
-					<img src="{$img_dir}onsale_{$lang_iso}.gif" alt="{l s='On sale'}" class="on_sale_img"/>
+					<!--<img src="{$img_dir}onsale_{$lang_iso}.gif" alt="{l s='On sale'}" class="on_sale_img"/>-->
 					<span class="on_sale">{l s='On sale!'}</span>
 				{elseif $product->specificPrice AND $product->specificPrice.reduction AND $productPriceWithoutReduction > $productPrice}
 					<span class="discount">{l s='Reduced price!'}</span>
@@ -365,11 +365,11 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
 					<br />
 					<span id="pretaxe_price"><span id="pretaxe_price_display">{convertPrice price=$product->getPrice(false, $smarty.const.NULL)}</span>&nbsp;{l s='tax excl.'}</span>
 				{/if}
-			</div>
-			<p id="reduction_percent" {if !$product->specificPrice OR $product->specificPrice.reduction_type != 'percentage'} style="display:none;"{/if}><span id="reduction_percent_display">{if $product->specificPrice AND $product->specificPrice.reduction_type == 'percentage'}-{$product->specificPrice.reduction*100}%{/if}</span></p>
-			<p id="reduction_amount" {if !$product->specificPrice OR $product->specificPrice.reduction_type != 'amount' && $product->specificPrice.reduction|intval ==0} style="display:none"{/if}><span id="reduction_amount_display">{if $product->specificPrice AND $product->specificPrice.reduction_type == 'amount' && $product->specificPrice.reduction|intval !=0}-{convertPrice price=$product->specificPrice.reduction|floatval}{/if}</span></p>
+			
+			<div id="reduction_percent" {if !$product->specificPrice OR $product->specificPrice.reduction_type != 'percentage'} style="display:none;"{/if}><span id="reduction_percent_display">{if $product->specificPrice AND $product->specificPrice.reduction_type == 'percentage'}-{$product->specificPrice.reduction*100}%{/if}</span></div>
+			<div id="reduction_amount" {if !$product->specificPrice OR $product->specificPrice.reduction_type != 'amount' && $product->specificPrice.reduction|intval ==0} style="display:none"{/if}><span id="reduction_amount_display">{if $product->specificPrice AND $product->specificPrice.reduction_type == 'amount' && $product->specificPrice.reduction|intval !=0}-{convertPrice price=$product->specificPrice.reduction|floatval}{/if}</span></div>
 			{if $product->specificPrice AND $product->specificPrice.reduction}
-				<p id="old_price"><span class="bold">
+				<div id="old_price">
 				{if $priceDisplay >= 0 && $priceDisplay <= 2}
 					{if $productPriceWithoutReduction > $productPrice}
 						<span id="old_price_display">{convertPrice price=$productPriceWithoutReduction}</span>
@@ -378,24 +378,24 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
 						{/if} -->
 					{/if}
 				{/if}
-				</span>
-				</p>
+				</div>				
 			{/if}
 			{if $packItems|@count && $productPrice < $product->getNoPackPrice()}
-				<p class="pack_price">{l s='instead of'} <span style="text-decoration: line-through;">{convertPrice price=$product->getNoPackPrice()}</span></p>
-				<br class="clear" />
+				<div class="pack_price">{l s='instead of'} <span>{convertPrice price=$product->getNoPackPrice()}</span></div>
+				
 			{/if}
 			{if $product->ecotax != 0}
-				<p class="price-ecotax">{l s='include'} <span id="ecotax_price_display">{if $priceDisplay == 2}{$ecotax_tax_exc|convertAndFormatPrice}{else}{$ecotax_tax_inc|convertAndFormatPrice}{/if}</span> {l s='for green tax'}
+				<div class="price-ecotax">{l s='include'} <span id="ecotax_price_display">{if $priceDisplay == 2}{$ecotax_tax_exc|convertAndFormatPrice}{else}{$ecotax_tax_inc|convertAndFormatPrice}{/if}</span> {l s='for green tax'}
 					{if $product->specificPrice AND $product->specificPrice.reduction}
-					<br />{l s='(not impacted by the discount)'}
+						{l s='(not impacted by the discount)'}
 					{/if}
-				</p>
+				</div>
 			{/if}
 			{if !empty($product->unity) && $product->unit_price_ratio > 0.000000}
 				 {math equation="pprice / punit_price"  pprice=$productPrice  punit_price=$product->unit_price_ratio assign=unit_price}
-				<p class="unit-price"><span id="unit_price_display">{convertPrice price=$unit_price}</span> {l s='per'} {$product->unity|escape:'htmlall':'UTF-8'}</p>
+				<div class="unit-price"><span id="unit_price_display">{convertPrice price=$unit_price}</span> {l s='per'} {$product->unity|escape:'htmlall':'UTF-8'}</div>
 			{/if}
+            </div>
 			{*close if for show price*}
 			{/if}
             
@@ -669,12 +669,12 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
 </div>
 {/if}
 
-{if isset($packItems) && $packItems|@count > 0}
-	<div id="blockpack">
+{*if isset($packItems) && $packItems|@count > 0*}
+	<!-- <div id="blockpack">
 		<h3>{l s='Pack content'}</h3>
-		{include file="$tpl_dir./product-list.tpl" products=$packItems}
-	</div>
-{/if}
+		{*include file="$tpl_dir./product-list.tpl" products=$packItems*}
+	</div> -->
+{*/if*} 
 
 {/if}
 {if isset($HOOK_PRODUCT_FOOTER) && $HOOK_PRODUCT_FOOTER}{$HOOK_PRODUCT_FOOTER}{/if}

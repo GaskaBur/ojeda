@@ -29,6 +29,11 @@
                     <a title="Conctato" href="{$link->getPageLink('contact')}">Contacto</a> ·  
                     <a title="Aviso Legal" href="{$link->getCMSLink('2')}">Aviso legal</a> ·  
                     <a title="Política de privacidad" href="{$link->getCMSLink('6')}">Política de privacidad</a> · 
+                    
+               		<br /><br />
+                    »<a class="grupo" title="Restaurante Ojeda" href="http://www.restauranteojeda.com/" target="_blank">Restaurante OJEDA</a> · 
+                    <a class="grupo" title="Apartamentos Ojeda" href="http://www.apartamentosojeda.com/" target="_blank">Apartamentos OJEDA</a> ·
+                    <a class="grupo" title="Almirante Bonifaz Hotel" href="http://www.almirantebonifaz.com/" target="_blank">Almirante Bonifaz Hotel</a>
                 </nav>
                 <div class="large-4 columns">
                  <a class="confianza" href="https://www.confianzaonline.es/empresas/delicatessenojeda.htm" target="_blank"><img src="https://www.confianzaonline.es/sellopequeno.gif" alt="Entidad adherida a Confianza Online" border="0"></a>

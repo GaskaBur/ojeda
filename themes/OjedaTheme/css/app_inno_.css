@@ -969,24 +969,18 @@ body .oj-footer1 {
 /************* PIE 2 **********/
 body div.oj-main-container footer.oj-footer2 {
 	background: #fff !important;	
-	height:60px;
+	height:50px;
 	font-family: 'Abel', sans-serif;
 	margin-top:30px;	
 	margin-bottom:10px;	
 }
 footer.oj-footer2 nav {
-	margin-top:5px;
-	padding:0px;
-	height:50px;
+	margin-top:10px;	
 }
 footer.oj-footer2 nav a {
 	background: #fff !important;
 	text-transform:uppercase !important;
-	padding:1px 7px !important;
-	margin-bottom:10px !important;
-}
-footer.oj-footer2 nav a.grupo {
-	margin-top:10px !important;
+	padding:3px 7px !important;
 }
 footer.oj-footer2 .large-4 {
 	height:50px;
@@ -1265,23 +1259,6 @@ body .oj-ficha-producto .oj-prodleft {
 	margin:0;
 	padding:0;
 }
-.price-iva {
-	font-size:0.6em !important;
-	clear:both;
-	display:block;
-}
-#old_price_display, .pack_price {
-	font-size:0.6em ;
-	display:block;
-	clear:both;
-	line-height:1em;
-	padding-bottom:0.4em !important;
-	color:#666;
-}
-.pack_price span {
-	font-weight:bold;
-	font-size:1.1em;
-}
 
 .oj-prodleft .button.compra.big {
 	padding-left:45px;
@@ -1425,12 +1402,6 @@ p.payment_module a.button.right {
 	margin-top:20px !important;
 	line-height:18px !important;
 }
-
-#maintenance p#message {
-	background-image:none !important;
-	background:none !important;	
-}
-
 
 /***** FAVORITEPRODUCTS **********/
 
