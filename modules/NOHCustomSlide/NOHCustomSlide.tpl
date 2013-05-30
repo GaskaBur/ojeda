@@ -1,8 +1,22 @@
 <div class="oj-slide large-12 columns row">
   <!-- Orbit Container -->
-  <div class="orbit-container ">
-    <ul data-orbit="" class="orbit-slides-container" data-options="timer_speed:3500; animation_speed: 700;
- bullets:false; stack_on_small:true;" >
+  
+  <script type="text/javascript" src="/modules/NOHCustomSlide/js/jquery.js"></script>
+  <script type="text/javascript" src="/modules/NOHCustomSlide/js/jquery.innerfade.js"></script>
+  <script type="text/javascript">
+	   $(document).ready(
+			function(){
+				$('ul#slidefade').innerfade({
+					speed: 1000,
+					timeout: 6000,
+					type: 'sequence',
+					containerheight: '220px'
+				});
+		});
+  </script>
+
+  <div class="orbit-container">
+    <ul id="slidefade" class="orbit-slides-container" >
         {foreach key=k item=i from=$diapositivas}
           <li>
             <div class="large-8 columns">
