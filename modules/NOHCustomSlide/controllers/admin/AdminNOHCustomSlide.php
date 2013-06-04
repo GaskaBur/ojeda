@@ -11,6 +11,7 @@ class AdminNOHCustomSlideController extends AdminController
    		$this->className = 'NOHCustomDiapo';
     	$this->fields_list = array(
 	    	'id_nohCustomSlide' => array('title' => $this->l('ID'),'width' => 25 ),
+	    	'orden' => array('title' => $this->l('Orden'),'width' => 'auto'),
 			'title' => array('title' => $this->l('Titulo'),'width' => 'auto'),
 			'description' => array('title' => $this->l('Descripción'),'width' => 'auto'),
 			'url' => array('title' => $this->l('Enlace'),'width' => 'auto'),		 	
@@ -63,7 +64,7 @@ class AdminNOHCustomSlideController extends AdminController
 				   ),
 				 array(
 					'type' => 'text',
-					'label' => $this->l('URL'),
+					'label' => $this->l('URL al hacer Click'),
 					'name' => 'url',
 					'maxlength' => 500,
 				    'size' => 50,
@@ -72,19 +73,16 @@ class AdminNOHCustomSlideController extends AdminController
 				),      
 			     array(
 				   'type' => 'text',
-				   'label' => $this->l('Texto enlace'),
+				   'label' => $this->l('Texto del enlace del elemento'),
 				   'name' => 'url_text',
 				   'size' => 50,
 				   'maxlength' => 200,
 				   'desc' => $this->l('Texto que aparecerá para seguir el enlace (Si está vacio se muestra enlace)'),
 				   ),
 			     array(
-				   'type' => 'text',
+				   'type' => 'file',
 				   'label' => $this->l('Imagen URL'),
 				   'name' => 'img_url',
-				   'maxlength' => 500,
-				   'size' => 50,
-				   'required' => true,
 				   'desc' => $this->l('Pon aquí la URL de la imagen que quieres mostrar en el Slide.'),
 				   ),
 				 array(
@@ -95,6 +93,15 @@ class AdminNOHCustomSlideController extends AdminController
 				   'maxlength' => 200,
 				   'desc' => $this->l('Atributo alt que se mostrará en caso de que el enlace de la imagen este roto o sea incorrecto.'),
 				   ), 
+				 array(
+				   'type' => 'text',
+				   'label' => $this->l('Orden'),
+				   'name' => 'orden',
+				   'size' => 50,
+				   'maxlength' => 200,
+				   'desc' => $this->l('Orden en que aparecerá este Slide.'),
+				   ),
+				 
 				 array(
 				   'type' => 'text',
 				   'label' => $this->l('Imagen title'),

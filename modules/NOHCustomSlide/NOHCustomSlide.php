@@ -96,6 +96,7 @@ class NOHCustomSlide extends Module
 		$querySlide.='title varchar(200) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL , ';
 		$querySlide.='description varchar(99999) CHARACTER SET utf8 COLLATE utf8_general_ci NULL ,';	
 		$querySlide.='url varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL , ';
+		$querySlide.='orden int(10) unsigned NULL ,';
 		$querySlide.='url_text varchar(200)  CHARACTER SET utf8 COLLATE utf8_general_ci NULL )';
 			
 		Db::getInstance()->Execute($querySlide);		

@@ -7,7 +7,8 @@ class NOHCustomDiapo extends ObjectModel {
   public $img_title;
   public $title;
   public $description;
-  public $url;  	
+  public $url;
+  public $orden;  	
   public $url_text;
   
   public static $definition = 
@@ -21,6 +22,7 @@ class NOHCustomDiapo extends ObjectModel {
 				'title' => array('type' => self::TYPE_STRING, 'validate' => 'isString', 'required' => true, 'size' => 500),
 				'description' => array('type' => self::TYPE_HTML, 'validate' => 'isString', 'size' => 99999),
 				'url' => array('type' => self::TYPE_STRING, 'validate' => 'isString', 'required' => true, 'size' => 500),
+				'orden' => array('type' => self::TYPE_INT, 'validate' => 'isUnsignedId', 'required' => false),
 	   			'url_text' => array('type' => self::TYPE_STRING, 'validate' => 'isString', 'size' => 200)
 		));
 		
