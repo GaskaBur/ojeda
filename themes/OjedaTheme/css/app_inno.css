@@ -641,7 +641,7 @@ body .oj-cat h3 span {
 
 .oj-prod ul li a.oj-prodpic {
 	display:block;
-	height:200px !important;
+	height:223px !important;
 	position:relative !important;
 	z-index:100 !important;
 	background:#fff !important;
@@ -649,8 +649,8 @@ body .oj-cat h3 span {
 	width:auto !important;
 }
 body .oj-prod ul li a.oj-prodpic img {
-	height:200px !important;
-	width:auto !important;
+	height:100% !important;
+	width:100% !important;
 }
 
 .oj-prod ul li .precio {
@@ -852,13 +852,15 @@ body .breadcrumbs {
 
 /************* SLIDER PORTADA **********/
 body .oj-slide {
-	background: url(../img/punticos.jpg) bottom repeat-x;
-	padding-bottom:35px;
+	background: url(../img/punticos.jpg) top repeat-x;
+	padding-top:35px;
+	margin-top:-10px !important;
 }
 .orbit-container ul li h3{
 }
 .orbit-container {
-	height:230px;
+	
+	padding:0px !important;
 }
 .orbit-container ol.orbit-bullets {
 	top:240px !important;
@@ -867,7 +869,12 @@ body .oj-slide {
 }
 .orbit-container ul li {
 	background: #e1ddb3;
-			
+	margin-top:0px !important;
+	height:240px !important;
+}
+
+.orbit-container ul li .large-8 a img {
+	
 }
 
 .orbit-container ul li .large-8{
@@ -969,24 +976,23 @@ body .oj-footer1 {
 /************* PIE 2 **********/
 body div.oj-main-container footer.oj-footer2 {
 	background: #fff !important;	
-	height:60px;
+	height:50px;
 	font-family: 'Abel', sans-serif;
 	margin-top:30px;	
 	margin-bottom:10px;	
 }
 footer.oj-footer2 nav {
-	margin-top:5px;
-	padding:0px;
-	height:50px;
+	margin-top:10px;	
 }
 footer.oj-footer2 nav a {
 	background: #fff !important;
 	text-transform:uppercase !important;
-	padding:1px 7px !important;
-	margin-bottom:10px !important;
+	padding:3px 7px !important;
+	
 }
+
 footer.oj-footer2 nav a.grupo {
-	margin-top:10px !important;
+	margin-bottom:10px !important;
 }
 footer.oj-footer2 .large-4 {
 	height:50px;
@@ -1038,9 +1044,10 @@ body .oj-pie {
 	padding-left:50px;
 
 }
-
-
-
+/*
+#image-block img{
+	height:300px !important;	
+}
 
 /************* FICHA PRODUCTO **********/
 /* FICHA PRODUCTO » Estilos originales del tema **********/
@@ -1108,6 +1115,7 @@ body .oj-pie {
 	height:70px;
 	width:70px;
 	cursor:pointer;
+	margin-right:0.5em;
 }
 
 #thumbs_list li img {
@@ -1178,7 +1186,7 @@ span.view_scroll_spacer {
 	margin-bottom:10px !important;	
 }
 .product_description {
-	margin-bottom:10px;
+	padding-bottom:20px;
 	margin-right:20px;
 }
 
@@ -1188,6 +1196,9 @@ span.view_scroll_spacer {
 	border-left:none !important;
 	border-right:none !important;
 	margin-bottom:20px !important;
+}
+.product_attributes {
+	margin-top:10px;
 }
 .product_attributes #attributes {
 	width:98%;

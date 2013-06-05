@@ -465,6 +465,7 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
 
 			
 		</div>
+        	<div style="margin-top:20px;margin-right:60px;display:block;float:right;"><img src="{$img_dir}gastos_envio_gratis_2.jpg" /></div>
             
 	    </div>
 		

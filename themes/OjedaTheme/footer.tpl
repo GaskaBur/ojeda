@@ -29,11 +29,6 @@
                     <a title="Conctato" href="{$link->getPageLink('contact')}">Contacto</a> ·  
                     <a title="Aviso Legal" href="{$link->getCMSLink('2')}">Aviso legal</a> ·  
                     <a title="Política de privacidad" href="{$link->getCMSLink('6')}">Política de privacidad</a> · 
-                    
-               		<br /><br />
-                    »<a class="grupo" title="Restaurante Ojeda" href="http://www.restauranteojeda.com/" target="_blank">Restaurante OJEDA</a> · 
-                    <a class="grupo" title="Apartamentos Ojeda" href="http://www.apartamentosojeda.com/" target="_blank">Apartamentos OJEDA</a> ·
-                    <a class="grupo" title="Almirante Bonifaz Hotel" href="http://www.almirantebonifaz.com/" target="_blank">Almirante Bonifaz Hotel</a>
                 </nav>
                 <div class="large-4 columns">
                  <a class="confianza" href="https://www.confianzaonline.es/empresas/delicatessenojeda.htm" target="_blank"><img src="https://www.confianzaonline.es/sellopequeno.gif" alt="Entidad adherida a Confianza Online" border="0"></a>
@@ -46,7 +41,12 @@
     	</div><!-- oj-main-content -->
     
         <div class="oj-pie">
-            <p>Copyright 2013 · Delicatessen Ojeda S.A. · C/ Vitoria 5 - 09004 Burgos · Telf.: +34 947 20 48 32 <span><a href="http://innovanity.com" title="Innovanity | Desarrollo y diseño de tiendas online" target="_blank">Innovanity | Desarrollo y diseño de tiendas online</a></span></p>
+            <p>Copyright 2013 · Delicatessen Ojeda S.A. · C/ Vitoria 5 - 09004 Burgos · Telf.: +34 947 20 48 32 <span><a href="http://innovanity.com" title="Innovanity | Desarrollo y diseño de tiendas online" target="_blank">Innovanity | Desarrollo y diseño de tiendas online</a></span>
+            <br /><br />
+            <a class="grupo" title="Grupo Ojeda" href="http://www.grupojeda.com/" target="_blank">Grupo OJEDA </a> » 
+            <a class="grupo" title="Restaurante Ojeda" href="http://www.restauranteojeda.com/" target="_blank"> Restaurante OJEDA</a> · 
+            <a class="grupo" title="Apartamentos Ojeda" href="http://www.apartamentosojeda.com/" target="_blank">Apartamentos OJEDA</a> ·
+            <a class="grupo" title="Almirante Bonifaz Hotel" href="http://www.almirantebonifaz.com/" target="_blank">Almirante Bonifaz Hotel</a></p>
         </div>
         
 	</div><!-- oj-main-container -->
@@ -93,5 +93,21 @@
   <script>
     $(document).foundation();
   </script>
+
+
+  <!---Google Analytics--->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-34965181-27']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
 </body>
 </html>
