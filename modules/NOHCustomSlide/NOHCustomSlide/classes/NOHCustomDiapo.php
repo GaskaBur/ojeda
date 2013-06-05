@@ -7,8 +7,7 @@ class NOHCustomDiapo extends ObjectModel {
   public $img_title;
   public $title;
   public $description;
-  public $url;
-  public $orden;  	
+  public $url;  	
   public $url_text;
   
   public static $definition = 
@@ -22,20 +21,17 @@ class NOHCustomDiapo extends ObjectModel {
 				'title' => array('type' => self::TYPE_STRING, 'validate' => 'isString', 'required' => true, 'size' => 500),
 				'description' => array('type' => self::TYPE_HTML, 'validate' => 'isString', 'size' => 99999),
 				'url' => array('type' => self::TYPE_STRING, 'validate' => 'isString', 'required' => true, 'size' => 500),
-				'orden' => array('type' => self::TYPE_INT, 'validate' => 'isUnsignedId', 'required' => false),
 	   			'url_text' => array('type' => self::TYPE_STRING, 'validate' => 'isString', 'size' => 200)
 		));
 		
-	public static function getQuery($where = NULL,$limit = NULL,$order = NULL)
+	public static function getQuery($where = NULL,$limit = NULL)
 	{		
 		$sql = 'SELECT * ';
 		$sql.= 'FROM '._DB_PREFIX_.'nohCustomSlide ';
 		if ($where != NULL)
 			$sql.= $where;
 		if ($limit != NULL)
-			$sql.= $limit;
-		if 	($order != NULL)
-			$sql .= " ORDER BY ".$order;
+			$sql.= $limit;	
 		$result =  Db::getInstance()->ExecuteS($sql);
 		return $result;
 	}

@@ -11,7 +11,6 @@ class AdminNOHCustomSlideController extends AdminController
    		$this->className = 'NOHCustomDiapo';
     	$this->fields_list = array(
 	    	'id_nohCustomSlide' => array('title' => $this->l('ID'),'width' => 25 ),
-	    	'orden' => array('title' => $this->l('Orden'),'width' => 'auto'),
 			'title' => array('title' => $this->l('Titulo'),'width' => 'auto'),
 			'description' => array('title' => $this->l('Descripción'),'width' => 'auto'),
 			'url' => array('title' => $this->l('Enlace'),'width' => 'auto'),		 	
@@ -37,28 +36,13 @@ class AdminNOHCustomSlideController extends AdminController
 
   public function renderForm()
   {
-    
-    if (isset($_GET['id_nohCustomSlide']))
-    {
-    	$sql = "SELECT img_url FROM "._DB_PREFIX_."nohCustomSlide WHERE id_nohCustomSlide=".$_GET['id_nohCustomSlide'];
-    	$q = DB::getInstance()->executeS($sql);
-    	$img =  $q[0]['img_url'];
-
-    }
     $this->fields_form = 
       array(
 	    'legend' => array(
 			      'title' => $this->l('Noises of Hill | Custom Slide'),
 			      ),
 	    'input' => array(
-				  array(
-				   'type' => 'text',
-				   'label' => $this->l('Orden'),
-				   'name' => 'orden',
-				   'size' => 10,
-				   'maxlength' => 3,
-				   'desc' => $this->l('Orden en que aparecerá este Slide.'),
-				   ),	
+				
 				 array(
 				   'type' => 'text',
 				   'label' => $this->l('Titulo'),
@@ -78,38 +62,31 @@ class AdminNOHCustomSlideController extends AdminController
 				   'desc' => $this->l('Texto (html) que aparecerá en el Slide'),
 				   ),
 				 array(
-				   'type' => 'text',
-				   'label' => $this->l('Pulsa en examinar para cargar una imagen'),
-				   'name' => 'img_url',
-				   'size' => 100,
-				   'required' => true,
-				   'desc' => '<img src="'.$img.'"/>',
-				   'readonly' => '1',
-				   ),
-			     array(
-				   'type' => 'file',
-				   'name' => 'img_file',
-				   'desc' => $this->l('La Imagen cambiará al guardar y salir.'),
-				   ),
-				 array(
 					'type' => 'text',
-					'label' => $this->l('URL al hacer Click'),
+					'label' => $this->l('URL'),
 					'name' => 'url',
 					'maxlength' => 500,
 				    'size' => 50,
 					'required' => true,
 					'desc' => $this->l('Enlace del elemento del slide'),
-					
 				),      
 			     array(
 				   'type' => 'text',
-				   'label' => $this->l('Texto del enlace del elemento'),
+				   'label' => $this->l('Texto enlace'),
 				   'name' => 'url_text',
 				   'size' => 50,
 				   'maxlength' => 200,
 				   'desc' => $this->l('Texto que aparecerá para seguir el enlace (Si está vacio se muestra enlace)'),
 				   ),
-			     
+			     array(
+				   'type' => 'text',
+				   'label' => $this->l('Imagen URL'),
+				   'name' => 'img_url',
+				   'maxlength' => 500,
+				   'size' => 50,
+				   'required' => true,
+				   'desc' => $this->l('Pon aquí la URL de la imagen que quieres mostrar en el Slide.'),
+				   ),
 				 array(
 				   'type' => 'text',
 				   'label' => $this->l('Imagen alt'),
@@ -118,8 +95,6 @@ class AdminNOHCustomSlideController extends AdminController
 				   'maxlength' => 200,
 				   'desc' => $this->l('Atributo alt que se mostrará en caso de que el enlace de la imagen este roto o sea incorrecto.'),
 				   ), 
-				
-				 
 				 array(
 				   'type' => 'text',
 				   'label' => $this->l('Imagen title'),

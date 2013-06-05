@@ -15,16 +15,16 @@
         <meta name="keywords" content="{$meta_keywords|escape:html:'UTF-8'}" />
     {/if}
 
-    {if $page_name eq "product"}        
+    {if $page_name eq "product"}
+        
         <meta property="og:type" content="article">
         <meta property="og:title" content="delicatessenOjeda.com">
         <meta property="og:url" content="{$link->getProductLink($product->id)}">
-        <meta property="og:description" content="{$product->description|regex_replace:"/(<p>|<p [^>]*>|<\\/p>)/":""}">
+        <meta property="og:description" content="{$product->description|strip_tags:false}">
         <meta property="og:image" content="{$link->getImageLink($product->link_rewrite, $product->id, large_default)}" />
         <meta property="og:locale" content="es_ES" />
         <meta property="og:site_name" content="Delicatessen Ojeda | La mejor selección de productos gourmet">
     {/if}
-    
     <link rel="icon" type="image/vnd.microsoft.icon" href="{$favicon_url}?{$img_update_time}" />
 	<link rel="shortcut icon" type="image/x-icon" href="{$favicon_url}?{$img_update_time}" />
 	
