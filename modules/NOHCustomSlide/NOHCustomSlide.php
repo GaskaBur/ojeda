@@ -101,8 +101,7 @@ class NOHCustomSlide extends Module
 	{
 		$this->context->controller->addJS(($this->_path).'js/jsStart.js', 'all');
 		$this->context->controller->addJS(($this->_path).'js/slides.min.jquery.js', 'all');
-		$this->context->controller->addJS(($this->_path).'js/jquery.js', 'all');
-		$this->context->controller->addJS(($this->_path).'js/jquery.innerfade.js', 'all');
+		
 		
 		
 		$this->context->controller->addCSS(($this->_path).'css/NOHCustomSlide.css', 'all');

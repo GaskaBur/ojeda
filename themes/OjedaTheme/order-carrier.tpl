@@ -102,6 +102,26 @@
 {if isset($virtual_cart) && $virtual_cart}
 	<input id="input_virtual_carrier" class="hidden" type="hidden" name="id_carrier" value="0" />
 {else}
+			{if $giftAllowed}
+				<h3 class="gift_title">{l s='¿Quieres papel de regalo?'}</h3>
+				<p class="checkbox">
+				<input type="checkbox" name="gift" id="gift" value="1" {if $cart->gift == 1}checked="checked"{/if} />
+				<label for="gift" >{l s='I would like my order to be gift-wrapped.'}</label>
+				<br />
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				{if $gift_wrapping_price > 0}
+					({l s='Additional cost of'}
+					<span class="price" id="gift-price">
+						{if $priceDisplay == 1}{convertPrice price=$total_wrapping_tax_exc_cost}{else}{convertPrice price=$total_wrapping_cost}{/if}
+					</span>
+				{if $use_taxes}{if $priceDisplay == 1} {l s='(tax excl.)'}{else} {l s='(tax incl.)'}{/if}{/if})
+			{/if}
+		</p>
+		<p id="gift_divx" class="textarea">
+			<!--label for="gift_message">{l s='If you wish, you can add a note to the gift:'}</label -->
+			<textarea rows="5" cols="35" id="gift_message" name="gift_message" style="display:none">{$cart->gift_message|escape:'htmlall':'UTF-8'}</textarea>
+		</p>
+		{/if}
 	<h5 class="carrier_title">{l s='Choose your delivery method'}</h5>
 	
 	<div id="HOOK_BEFORECARRIER">
@@ -109,6 +129,7 @@
 			{$HOOK_BEFORECARRIER}
 		{/if}
 	</div>
+
 	{if isset($isVirtualCart) && $isVirtualCart}
 		<p class="warning">{l s='No carrier needed for this order'}</p>
 	{else}
@@ -238,26 +259,7 @@
 	</div>
 	<div style="display: none;" id="extra_carrier"></div>
 	
-		{if $giftAllowed}
-		<h3 class="gift_title">{l s='Gift'}</h3>
-		<p class="checkbox">
-			<input type="checkbox" name="gift" id="gift" value="1" {if $cart->gift == 1}checked="checked"{/if} />
-			<label for="gift" >{l s='I would like my order to be gift-wrapped.'}</label>
-			<br />
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			{if $gift_wrapping_price > 0}
-				({l s='Additional cost of'}
-				<span class="price" id="gift-price">
-					{if $priceDisplay == 1}{convertPrice price=$total_wrapping_tax_exc_cost}{else}{convertPrice price=$total_wrapping_cost}{/if}
-				</span>
-				{if $use_taxes}{if $priceDisplay == 1} {l s='(tax excl.)'}{else} {l s='(tax incl.)'}{/if}{/if})
-			{/if}
-		</p>
-		<p id="gift_div" class="textarea">
-			<label for="gift_message">{l s='If you wish, you can add a note to the gift:'}</label>
-			<textarea rows="5" cols="35" id="gift_message" name="gift_message">{$cart->gift_message|escape:'htmlall':'UTF-8'}</textarea>
-		</p>
-		{/if}
+		
 	{/if}
 {/if}
 <div class="clear"></div>

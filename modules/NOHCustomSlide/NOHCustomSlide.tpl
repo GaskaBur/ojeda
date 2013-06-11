@@ -1,7 +1,8 @@
 <div class="oj-slide large-12 columns row">
   <!-- Orbit Container -->
   
-  
+  <script type="text/javascript" src="/modules/NOHCustomSlide/js/jquery.js"></script>
+  <script type="text/javascript" src="/modules/NOHCustomSlide/js/jquery.innerfade.js"></script> 
   <script type="text/javascript">
 	   $(document).ready(
 			function(){
