@@ -5,7 +5,7 @@
                 <div class="large-4 columns">
                     <div class="panel oj-fav">
                     <span class="ribete"></span>
-                    {$HOOK_OJEDA_BESTSELLERS}
+                    {$HOOK_OJEDA_CUSTOM_LIST_2}
                     </div>	            	
                 </div>
                 
@@ -18,7 +18,7 @@
                 <div class="large-4 columns">
                     <div class="panel oj-bur">
                     <span class="ribete"></span>
-                    {$HOOK_OJEDA_CUSTOM_TAB_LIST}
+                    {$HOOK_OJEDA_CUSTOM_LIST_3}
                     </div>                       
                 </div>
             </footer>

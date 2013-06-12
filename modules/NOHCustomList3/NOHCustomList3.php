@@ -3,19 +3,19 @@
 if ( !defined( '_PS_VERSION_' ) )
   exit;
   
-class NOHCustomList extends Module
+class NOHCustomList3 extends Module
 {
 		
 	public function __construct()
 	{
-		$this->name = 'NOHCustomList';
+		$this->name = 'NOHCustomList3';
 		$this->tab = 'others';
 		$this->author = 'Sergio Gil Perez';
 		$this->version = '1.0';	
 		$this->ps_versions_compliancy = array('min' => '1.5', 'max' => '1.6');	
 		parent::__construct();
 		
-		$this->displayName = $this->l('Lista selección Ojeda');
+		$this->displayName = $this->l('Lista productos Típicos');
 		$this->description = $this->l('Lista de productos personalizadas | created by Noises Of Hill');
 	}
 	
@@ -24,20 +24,20 @@ class NOHCustomList extends Module
 	*/
 	public function install()
 	{	 	
-        Configuration::updateValue('NOHCL_titulo', '');
-        Configuration::updateValue('NOHCL_productos', '');
+        Configuration::updateValue('NOHCL3_titulo', '');
+        Configuration::updateValue('NOHCL3_productos', '');
         return (parent::install() AND $this->registerHook('displayHeader') 
-		 		&& $this->registerHook('NOHCustomList')
+		 		&& $this->registerHook('NOHCustomList3')
 		 	);
 	}
 
 	
 
-	public function hookNOHCustomList()
+	public function hookNOHCustomList3()
 	{				
 		$lista = array();
-		if (Configuration::get('NOHCL_productos') != "")
-			$lista = explode("|", Configuration::get('NOHCL_productos'));
+		if (Configuration::get('NOHCL3_productos') != "")
+			$lista = explode("|", Configuration::get('NOHCL3_productos'));
 		
 		if (count($lista > 0))
 		{
@@ -47,7 +47,7 @@ class NOHCustomList extends Module
 				$pr[] = new Product($p);
 			}
 			$this->context->smarty->assign(array("pr" => $pr));
-			return $this->display(__FILE__, 'NOHCustomList.tpl');
+			return $this->display(__FILE__, 'NOHCustomList3.tpl');
 
 		}
 		else
@@ -58,8 +58,8 @@ class NOHCustomList extends Module
 	
 	public function uninstall()
 	{
-		Configuration::deleteByName('NOHCL_titulo');
-		Configuration::deleteByName('NOHCL_productos');
+		Configuration::deleteByName('NOHCL3_titulo');
+		Configuration::deleteByName('NOHCL3_productos');
 		return (parent::uninstall());
 	}  
 
@@ -67,8 +67,8 @@ class NOHCustomList extends Module
 	{
 		$output = null;
 		$lista = array();
-		if (Configuration::get('NOHCL_productos') != "")
-			$lista = explode("|", Configuration::get('NOHCL_productos'));
+		if (Configuration::get('NOHCL3_productos') != "")
+			$lista = explode("|", Configuration::get('NOHCL3_productos'));
 		
 
  
@@ -82,8 +82,8 @@ class NOHCustomList extends Module
 		
 			$nuevaLista = implode("|", $lista);
 			
-			Configuration::updateValue('NOHCL_titulo', Tools::getValue('titulo'));
-			Configuration::updateValue('NOHCL_productos', $nuevaLista);
+			Configuration::updateValue('NOHCL3_titulo', Tools::getValue('titulo'));
+			Configuration::updateValue('NOHCL3_productos', $nuevaLista);
 			$output .= $this->displayConfirmation($this->l('Settings updated'));			
 		}
 		
@@ -188,7 +188,7 @@ function moveOptions(theSelFrom, theSelTo)
 		
 			$output .= '<label>Título de la lista de productos</label>';
 			$output .= '<div class="margin-form" style="padding-left:0">';
-			$output .= '<input type="text" name="titulo" style="width:500px;" id="titulo" size="12" maxlength="400" value="'.Configuration::get('NOHCL_titulo').'" />';
+			$output .= '<input type="text" name="titulo" style="width:500px;" id="titulo" size="12" maxlength="400" value="'.Configuration::get('NOHCL3_titulo').'" />';
 			$output .= '</div>';
 			$output .= '<table border="0"><tr>';
 			$output .= '<td>';
@@ -299,7 +299,7 @@ function moveOptions(theSelFrom, theSelTo)
 		);
 		 
 		// Load current value
-		$helper->fields_value['titulo'] = Configuration::get('NOHCL_titulo');
+		$helper->fields_value['titulo'] = Configuration::get('NOHCL3_titulo');
 		
 		 
 		return $helper->generateForm($fields_form);
