@@ -11,6 +11,13 @@ class AdminNOHCustomSlideController extends AdminController
    		$this->className = 'NOHCustomDiapo';
     	$this->fields_list = array(
 	    	'id_nohCustomSlide' => array('title' => $this->l('ID'),'width' => 25 ),
+	    	'active' => array('title' => $this->l('Activo'),'width' => 'auto',
+	    	'width' => 70,
+				'active' => 'status',
+				'filter_key' => 'a!active',
+				'align' => 'center',
+				'type' => 'bool',
+				'orderby' => true),
 	    	'orden' => array('title' => $this->l('Orden'),'width' => 'auto'),
 			'title' => array('title' => $this->l('Titulo'),'width' => 'auto'),
 			'description' => array('title' => $this->l('Descripción'),'width' => 'auto'),
@@ -128,6 +135,27 @@ class AdminNOHCustomSlideController extends AdminController
 				   'maxlength' => 200,
 				   'desc' => $this->l('Atributo title de la imagen.'),
 				   ), 
+
+				 array(
+					'type' => 'radio',
+					'label' => $this->l('Activo:'),
+					'name' => 'active',
+					'required' => false,
+					'class' => 't',
+					'values' => array(
+						array(
+							'id' => 'active_on',
+							'value' => 1,
+							'label' => '<img  src="../img/admin/enabled.gif" alt="'.$this->l('Enabled').'" title="'.$this->l('Enabled').'" />'
+						),
+						array(
+							'id' => 'active_off',
+							'value' => 0,
+							'label' => '<img  src="../img/admin/disabled.gif" alt="'.$this->l('Disabled').'" title="'.$this->l('Disabled').'" />'
+						)
+					),
+					'desc' => $this->l('Enabled or disabled'),
+					),
 			     ));
 
     $this->fields_form['submit'] = 

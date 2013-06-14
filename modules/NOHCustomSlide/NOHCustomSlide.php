@@ -110,7 +110,7 @@ class NOHCustomSlide extends Module
 	public function hookDisplayHome()
 	{				
 		global $smarty;
-		$diapositivas = NOHCustomDiapo::getQuery(null,null,"orden");
+		$diapositivas = NOHCustomDiapo::getQuery("WHERE active = 1",null,"orden");
 		if (count($diapositivas) > 0)
 		{
 			$this->context->smarty->assign(array("diapositivas" => $diapositivas));
@@ -137,6 +137,7 @@ class NOHCustomSlide extends Module
 		
 		$querySlide = 'CREATE TABLE IF NOT EXISTS '._DB_PREFIX_.'nohCustomSlide (';
 		$querySlide.='id_nohCustomSlide int(10) unsigned NOT NULL Key AUTO_INCREMENT,';
+		$querySlide.='active tinyint(1) NOT NULL ,';
 		$querySlide.='img_url varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL , ';
 		$querySlide.='img_alt varchar(200)  CHARACTER SET utf8 COLLATE utf8_general_ci NULL , ';
 		$querySlide.='img_title varchar(200)  CHARACTER SET utf8 COLLATE utf8_general_ci NULL , ';

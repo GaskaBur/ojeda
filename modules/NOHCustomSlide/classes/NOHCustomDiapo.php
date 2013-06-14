@@ -3,6 +3,7 @@
 class NOHCustomDiapo extends ObjectModel {
 
   public $img_url;
+  public $active = true;
   public $img_alt;
   public $img_title;
   public $title;
@@ -16,6 +17,7 @@ class NOHCustomDiapo extends ObjectModel {
 	   'table' => 'nohCustomSlide',
 	   'primary' => 'id_nohCustomSlide',
 	   'fields' => array(
+	   			'active' => array('type' => self::TYPE_BOOL, 'validate' => 'isBool'),
 	   			'img_url' => array('type' => self::TYPE_STRING, 'validate' => 'isString', 'required' => true, 'size' => 500),
 				'img_alt' => array('type' => self::TYPE_STRING, 'validate' => 'isString', 'size' => 200),
 				'img_title' => array('type' => self::TYPE_STRING, 'validate' => 'isString', 'size' => 200),
